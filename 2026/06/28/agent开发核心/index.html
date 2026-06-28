@@ -1,0 +1,604 @@
+<!DOCTYPE html>
+<html lang=zh>
+<head>
+  <meta charset="utf-8">
+  
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+  <meta name="renderer" content="webkit">
+  <meta http-equiv="Cache-Control" content="no-transform" />
+  <meta http-equiv="Cache-Control" content="no-siteapp" />
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="format-detection" content="telephone=no,email=no,adress=no">
+  <!-- Color theme for statusbar -->
+  <meta name="theme-color" content="#000000" />
+  <!-- 强制页面在当前窗口以独立页面显示,防止别人在框架里调用页面 -->
+  <meta http-equiv="window-target" content="_top" />
+  
+  
+  <title>Agent 开发不是简单的模型调用与 Prompt 编写 | 厚实表皮</title>
+  <meta name="description" content="Agent 开发的本质，是以上下文填充和模型调优工作流为核心的全方位智能化自主系统开发工程。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Agent 开发不是简单的模型调用与 Prompt 编写">
+<meta property="og:url" content="http://example.com/2026/06/28/agent%E5%BC%80%E5%8F%91%E6%A0%B8%E5%BF%83/index.html">
+<meta property="og:site_name" content="厚实表皮">
+<meta property="og:description" content="Agent 开发的本质，是以上下文填充和模型调优工作流为核心的全方位智能化自主系统开发工程。">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2026-06-27T16:00:00.000Z">
+<meta property="article:modified_time" content="2026-06-28T09:26:19.066Z">
+<meta property="article:author" content="sukuru">
+<meta property="article:tag" content="Agent">
+<meta property="article:tag" content="上下文填充">
+<meta property="article:tag" content="模型调优">
+<meta property="article:tag" content="工作流">
+<meta property="article:tag" content="AI 架构">
+<meta name="twitter:card" content="summary">
+  <!-- Canonical links -->
+  <link rel="canonical" href="http://example.com/2026/06/28/agent%E5%BC%80%E5%8F%91%E6%A0%B8%E5%BF%83/index.html">
+  
+    <link rel="alternate" href="/atom.xml" title="厚实表皮" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png" type="image/x-icon">
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+  
+  
+  
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk@1.4.0/dist/gitalk.min.css">
+  
+<meta name="generator" content="Hexo 7.3.0"></head>
+
+
+<body class="main-center" itemscope itemtype="http://schema.org/WebPage">
+  <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+  <div class="slimContent">
+    <div class="navbar-header">
+      
+      
+      <div class="profile-block text-center">
+        <a id="avatar" href="https://github.com/sukurucn" target="_blank">
+          <img class="img-circle img-rotate" src="/images/avatar.jpg" width="200" height="200">
+        </a>
+        <h2 id="name" class="hidden-xs hidden-sm">sukuru</h2>
+        <h3 id="title" class="hidden-xs hidden-sm hidden-md">Agent 开发 — 上下文填充 &amp; 模型调优工作流</h3>
+        <small id="location" class="text-muted hidden-xs hidden-sm"><i class="icon icon-map-marker"></i> Hefei, China</small>
+      </div>
+      
+      <div class="search" id="search-form-wrap">
+
+    <form class="search-form sidebar-form">
+        <div class="input-group">
+            <input type="text" class="search-form-input form-control" placeholder="搜索" />
+            <span class="input-group-btn">
+                <button type="submit" class="search-form-submit btn btn-flat" onclick="return false;"><i class="icon icon-search"></i></button>
+            </span>
+        </div>
+    </form>
+    <div class="ins-search">
+  <div class="ins-search-mask"></div>
+  <div class="ins-search-container">
+    <div class="ins-input-wrapper">
+      <input type="text" class="ins-search-input" placeholder="想要查找什么..." x-webkit-speech />
+      <button type="button" class="close ins-close ins-selectable" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+    </div>
+    <div class="ins-section-wrapper">
+      <div class="ins-section-container"></div>
+    </div>
+  </div>
+</div>
+
+
+</div>
+      <button class="navbar-toggle collapsed" type="button" data-toggle="collapse" data-target="#main-navbar" aria-controls="main-navbar" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+    </div>
+    <nav id="main-navbar" class="collapse navbar-collapse" itemscope itemtype="http://schema.org/SiteNavigationElement" role="navigation">
+      <ul class="nav navbar-nav main-nav ">
+        
+        
+        <li class="menu-item menu-item-home">
+          <a href="/.">
+            
+            <i class="icon icon-home-fill"></i>
+            
+            <span class="menu-title">首页</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives">
+            
+            <i class="icon icon-archives-fill"></i>
+            
+            <span class="menu-title">归档</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories">
+            
+            <i class="icon icon-folder"></i>
+            
+            <span class="menu-title">分类</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-repository">
+          <a target="_blank" rel="noopener" href="https://github.com/sukurucn?tab=repositories">
+            
+            <i class="icon icon-project"></i>
+            
+            <span class="menu-title">项目</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-books">
+          <a href="/books">
+            
+            <i class="icon icon-book-fill"></i>
+            
+            <span class="menu-title">书单</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-links">
+          <a href="/links">
+            
+            <i class="icon icon-friendship"></i>
+            
+            <span class="menu-title">友链</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about">
+            
+            <i class="icon icon-cup-fill"></i>
+            
+            <span class="menu-title">关于</span>
+          </a>
+        </li>
+        
+      </ul>
+      
+	
+    <ul class="social-links">
+    	
+        <li><a href="https://github.com/sukurucn" target="_blank" title="Github" data-toggle=tooltip data-placement=top><i class="icon icon-github"></i></a></li>
+        
+        <li><a href="/" target="_blank" title="Home" data-toggle=tooltip data-placement=top><i class="icon icon-home"></i></a></li>
+        
+        <li><a href="tencent://message/?uin=1066744726" target="_blank" title="Qq" data-toggle=tooltip data-placement=top><i class="icon icon-qq"></i></a></li>
+        
+        <li><a href="/atom.xml" target="_blank" title="Rss" data-toggle=tooltip data-placement=top><i class="icon icon-rss"></i></a></li>
+        
+    </ul>
+
+    </nav>
+  </div>
+</header>
+
+  
+    <aside class="sidebar" itemscope itemtype="http://schema.org/WPSideBar">
+  <div class="slimContent">
+    
+      <div class="widget">
+    <h3 class="widget-title">公告</h3>
+    <div class="widget-body">
+        <div id="board">
+            <div class="content">
+                <p>不敢苦工琢磨自己</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">分类</h3>
+    <div class="widget-body">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%8A%80%E6%9C%AF%E5%88%86%E4%BA%AB/">技术分享</a><span class="category-list-count">2</span></li></ul>
+    </div>
+  </div>
+
+
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">归档</h3>
+    <div class="widget-body">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2026/06/">六月 2026</a><span class="archive-list-count">3</span></li></ul>
+    </div>
+  </div>
+
+
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">最新文章</h3>
+    <div class="widget-body">
+      <ul class="recent-post-list list-unstyled no-thumbnail">
+        
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                
+              </p>
+              <p class="item-title">
+                <a href="/2026/06/28/hello-world/" class="title">Hello World</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2026-06-28T03:16:31.063Z" itemprop="datePublished">2026-06-28</time>
+              </p>
+            </div>
+          </li>
+          
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                <a class="category-link" href="/categories/%E6%8A%80%E6%9C%AF%E5%88%86%E4%BA%AB/">技术分享</a>
+              </p>
+              <p class="item-title">
+                <a href="/2026/06/28/agent%E5%BC%80%E5%8F%91%E6%A0%B8%E5%BF%83/" class="title">Agent 开发不是简单的模型调用与 Prompt 编写</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2026-06-27T16:00:00.000Z" itemprop="datePublished">2026-06-28</time>
+              </p>
+            </div>
+          </li>
+          
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                <a class="category-link" href="/categories/%E6%8A%80%E6%9C%AF%E5%88%86%E4%BA%AB/">技术分享</a>
+              </p>
+              <p class="item-title">
+                <a href="/2026/06/28/%E6%A2%AF%E5%BA%A6%E4%B8%8B%E9%99%8D%E4%B8%93%E9%A2%98/" class="title">梯度下降专题</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2026-06-27T16:00:00.000Z" itemprop="datePublished">2026-06-28</time>
+              </p>
+            </div>
+          </li>
+          
+      </ul>
+    </div>
+  </div>
+  
+
+    
+  </div>
+</aside>
+
+  
+  
+<main class="main" role="main">
+  <div class="content">
+  <article id="post-agent开发核心" class="article article-type-post" itemscope itemtype="http://schema.org/BlogPosting">
+    
+    <div class="article-header">
+      
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Agent 开发不是简单的模型调用与 Prompt 编写
+    </h1>
+  
+
+      
+      <div class="article-meta">
+        <span class="article-date">
+    <i class="icon icon-calendar-check"></i>
+	<a href="/2026/06/28/agent%E5%BC%80%E5%8F%91%E6%A0%B8%E5%BF%83/" class="article-date">
+	  <time datetime="2026-06-27T16:00:00.000Z" itemprop="datePublished">2026-06-28</time>
+	</a>
+</span>
+        
+  <span class="article-category">
+    <i class="icon icon-folder"></i>
+    <a class="article-category-link" href="/categories/%E6%8A%80%E6%9C%AF%E5%88%86%E4%BA%AB/">技术分享</a>
+  </span>
+
+        
+  <span class="article-tag">
+    <i class="icon icon-tags"></i>
+	<a class="article-tag-link-link" href="/tags/AI-%E6%9E%B6%E6%9E%84/" rel="tag">AI 架构</a>, <a class="article-tag-link-link" href="/tags/Agent/" rel="tag">Agent</a>, <a class="article-tag-link-link" href="/tags/%E4%B8%8A%E4%B8%8B%E6%96%87%E5%A1%AB%E5%85%85/" rel="tag">上下文填充</a>, <a class="article-tag-link-link" href="/tags/%E5%B7%A5%E4%BD%9C%E6%B5%81/" rel="tag">工作流</a>, <a class="article-tag-link-link" href="/tags/%E6%A8%A1%E5%9E%8B%E8%B0%83%E4%BC%98/" rel="tag">模型调优</a>
+  </span>
+
+
+        
+
+        <span class="post-comment"><i class="icon icon-comment"></i> <a href="/2026/06/28/agent%E5%BC%80%E5%8F%91%E6%A0%B8%E5%BF%83/#comments" class="article-comment-link">评论</a></span>
+        
+      </div>
+    </div>
+    <div class="article-entry marked-body" itemprop="articleBody">
+      
+        <h2 id="关于这个博客"><a href="#关于这个博客" class="headerlink" title="关于这个博客"></a>关于这个博客</h2><p>这个博客是我（sukuru）学习 Agent 开发的技术笔记本。从上下文填充到模型调优，从记忆模块到工具调用——每一个概念我都会尽量拆解清楚，让后来者少走弯路。技术分享的意义在于：写下来，帮到人，才算真正学会。</p>
+<hr>
+<h2 id="一、什么是-Agent-开发？"><a href="#一、什么是-Agent-开发？" class="headerlink" title="一、什么是 Agent 开发？"></a>一、什么是 Agent 开发？</h2><p>Agent 开发不是简单的模型调用与 Prompt 编写，而是以<strong>上下文填充</strong>和<strong>模型调优工作流</strong>为核心，集感知、决策、执行、记忆迭代于一体的智能化自主系统开发工程。核心目标是打破大模型”无状态、无记忆、无自主逻辑”的固有局限。</p>
+<hr>
+<h2 id="二、两大核心模块"><a href="#二、两大核心模块" class="headerlink" title="二、两大核心模块"></a>二、两大核心模块</h2><h3 id="1-上下文填充：智能交互的基础支撑"><a href="#1-上下文填充：智能交互的基础支撑" class="headerlink" title="1. 上下文填充：智能交互的基础支撑"></a>1. 上下文填充：智能交互的基础支撑</h3><p><strong>本质</strong>：一套标准化、结构化、可动态更新的信息补全体系。</p>
+<p><strong>核心动作</strong>：整合历史对话、任务执行日志、场景环境信息、工具调用结果、业务规则约束等多维数据，按优先级与关联性筛选重组后输入模型。</p>
+<p><strong>解决的问题</strong>：</p>
+<ul>
+<li>大模型上下文遗忘</li>
+<li>场景适配差</li>
+<li>问答割裂</li>
+<li>任务执行断层</li>
+</ul>
+<p><strong>价值</strong>：让 Agent 可连贯理解长期任务、精准捕捉隐性需求，从”被动应答工具”变为”贴合场景的智能主体”。</p>
+<h3 id="2-模型调优工作流：场景落地与自主进化的核心骨架"><a href="#2-模型调优工作流：场景落地与自主进化的核心骨架" class="headerlink" title="2. 模型调优工作流：场景落地与自主进化的核心骨架"></a>2. 模型调优工作流：场景落地与自主进化的核心骨架</h3><p><strong>本质</strong>：标准化、自动化、可迭代的全链路调优体系。</p>
+<p><strong>覆盖环节</strong>：</p>
+<table>
+<thead>
+<tr>
+<th>环节</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>数据预处理</td>
+<td>清洗、标注、结构化原始数据</td>
+</tr>
+<tr>
+<td>场景适配微调</td>
+<td>针对具体业务场景做轻量化微调</td>
+</tr>
+<tr>
+<td>Prompt 工程固化</td>
+<td>将经验固化为可复用的 Prompt 模板</td>
+</tr>
+<tr>
+<td>工具调用逻辑优化</td>
+<td>优化 Function Call &#x2F; Tool Use 链路</td>
+</tr>
+<tr>
+<td>决策路径迭代</td>
+<td>持续优化 Agent 的判断链路</td>
+</tr>
+<tr>
+<td>异常反馈修正</td>
+<td>收集异常 case，定向修复</td>
+</tr>
+<tr>
+<td>效果评估闭环</td>
+<td>建立评估指标，量化迭代效果</td>
+</tr>
+</tbody></table>
+<p><strong>核心特点</strong>：聚焦场景化、轻量化、针对性优化，而非通用大模型的全局参数调优。</p>
+<p><strong>价值</strong>：持续提升特定业务场景下的决策准确率、执行效率与输出规范性。</p>
+<hr>
+<h2 id="三、闭环迭代逻辑"><a href="#三、闭环迭代逻辑" class="headerlink" title="三、闭环迭代逻辑"></a>三、闭环迭代逻辑</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">上下文填充积累真实交互与任务执行数据</span><br><span class="line">        ↓</span><br><span class="line">调优工作流完成数据清洗、标注与针对性优化</span><br><span class="line">        ↓</span><br><span class="line">迭代后的能力回灌至业务场景</span><br><span class="line">        ↓</span><br><span class="line">新的交互数据反向驱动下一轮优化</span><br><span class="line">        ↓</span><br><span class="line">      形成完整闭环</span><br></pre></td></tr></table></figure>
+
+<p>二者相互驱动，形成自主进化的完整闭环。</p>
+<hr>
+<h2 id="四、延伸能力模块"><a href="#四、延伸能力模块" class="headerlink" title="四、延伸能力模块"></a>四、延伸能力模块</h2><p>基于两大核心，Agent 开发进一步延伸出四大能力模块：</p>
+<table>
+<thead>
+<tr>
+<th>模块</th>
+<th>数据来源 &#x2F; 能力支撑</th>
+<th>职责</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>记忆模块</td>
+<td>上下文填充提供数据来源</td>
+<td>短期对话记忆 + 长期业务记忆</td>
+</tr>
+<tr>
+<td>规划模块</td>
+<td>模型调优工作流提供能力支撑</td>
+<td>任务拆解与路径规划</td>
+</tr>
+<tr>
+<td>工具调用模块</td>
+<td>模型调优工作流提供能力支撑</td>
+<td>落地执行与外部交互</td>
+</tr>
+<tr>
+<td>反思迭代模块</td>
+<td>模型调优工作流提供能力支撑</td>
+<td>自我复盘纠错</td>
+</tr>
+</tbody></table>
+<hr>
+<h2 id="五、核心本质总结"><a href="#五、核心本质总结" class="headerlink" title="五、核心本质总结"></a>五、核心本质总结</h2><ul>
+<li><strong>上下文填充</strong>：解决场景认知与信息连贯问题</li>
+<li><strong>模型调优工作流</strong>：解决场景适配与能力进化问题</li>
+</ul>
+<p>二者共同支撑 AI 从”被动应答”升级为”主动思考、自主执行、持续优化”的智能主体，这也是 Agent 与传统大模型应用的核心差异。</p>
+<hr>
+<p>后续会陆续更新博客，记录对这些环节的学习过程。</p>
+
+      
+    </div>
+    <div class="article-footer">
+      <blockquote class="mt-2x">
+  <ul class="post-copyright list-unstyled">
+    
+    <li class="post-copyright-link hidden-xs">
+      <strong>本文链接：</strong>
+      <a href="http://example.com/2026/06/28/agent%E5%BC%80%E5%8F%91%E6%A0%B8%E5%BF%83/" title="Agent 开发不是简单的模型调用与 Prompt 编写" target="_blank" rel="external">http://example.com/2026/06/28/agent开发核心/</a>
+    </li>
+    
+    <li class="post-copyright-license">
+      <strong>版权声明： </strong> 本博客所有文章除特别声明外，均采用 <a href="http://creativecommons.org/licenses/by/4.0/deed.zh" target="_blank" rel="external">CC BY 4.0 CN协议</a> 许可协议。转载请注明出处！
+    </li>
+  </ul>
+</blockquote>
+
+
+<div class="panel panel-default panel-badger">
+  <div class="panel-body">
+    <figure class="media">
+      <div class="media-left">
+        <a href="https://github.com/sukurucn" target="_blank" class="img-burn thumb-sm visible-lg">
+          <img src="/images/avatar.jpg" class="img-rounded w-full" alt="">
+        </a>
+      </div>
+      <div class="media-body">
+        <h3 class="media-heading"><a href="https://github.com/sukurucn" target="_blank"><span class="text-dark">sukuru</span><small class="ml-1x">Agent 开发 — 上下文填充 &amp; 模型调优工作流</small></a></h3>
+        <div>不敢苦工琢磨自己</div>
+      </div>
+    </figure>
+  </div>
+</div>
+
+
+    </div>
+  </article>
+  
+    
+  <section id="comments">
+  	
+           
+    
+  </section>
+
+
+  
+</div>
+
+  <nav class="bar bar-footer clearfix" data-stick-bottom>
+  <div class="bar-inner">
+  
+  <ul class="pager pull-left">
+    
+    <li class="prev">
+      <a href="/2026/06/28/hello-world/" title="Hello World"><i class="icon icon-angle-left" aria-hidden="true"></i><span>&nbsp;&nbsp;上一篇</span></a>
+    </li>
+    
+    
+    <li class="next">
+      <a href="/2026/06/28/%E6%A2%AF%E5%BA%A6%E4%B8%8B%E9%99%8D%E4%B8%93%E9%A2%98/" title="梯度下降专题"><span>下一篇&nbsp;&nbsp;</span><i class="icon icon-angle-right" aria-hidden="true"></i></a>
+    </li>
+    
+    
+  </ul>
+  
+  
+  
+  <div class="bar-right">
+    
+    <div class="share-component" data-sites="weibo,qq,wechat,facebook,twitter" data-mobile-sites="weibo,qq,qzone"></div>
+    
+  </div>
+  </div>
+</nav>
+  
+
+
+</main>
+
+  <footer class="footer" itemscope itemtype="http://schema.org/WPFooter">
+	
+	
+    <ul class="social-links">
+    	
+        <li><a href="https://github.com/sukurucn" target="_blank" title="Github" data-toggle=tooltip data-placement=top><i class="icon icon-github"></i></a></li>
+        
+        <li><a href="/" target="_blank" title="Home" data-toggle=tooltip data-placement=top><i class="icon icon-home"></i></a></li>
+        
+        <li><a href="tencent://message/?uin=1066744726" target="_blank" title="Qq" data-toggle=tooltip data-placement=top><i class="icon icon-qq"></i></a></li>
+        
+        <li><a href="/atom.xml" target="_blank" title="Rss" data-toggle=tooltip data-placement=top><i class="icon icon-rss"></i></a></li>
+        
+    </ul>
+
+    <div class="copyright">
+    	
+        <div class="publishby">
+        	Theme by <a href="https://github.com/cofess" target="_blank"> cofess </a>base on <a href="https://github.com/cofess/hexo-theme-pure" target="_blank">pure</a>.
+        </div>
+    </div>
+</footer>
+  <script src="//cdn.jsdelivr.net/npm/jquery@1.12.4/dist/jquery.min.js"></script>
+<script>
+window.jQuery || document.write('<script src="js/jquery.min.js"><\/script>')
+</script>
+
+<script src="/js/plugin.min.js"></script>
+
+
+<script src="/js/application.js"></script>
+
+
+    <script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: '文章',
+            PAGES: '页面',
+            CATEGORIES: '分类',
+            TAGS: '标签',
+            UNTITLED: '(未命名)',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+
+<script src="/js/insight.js"></script>
+
+
+
+
+
+
+   
+
+
+
+
+   
+    
+  <!-- <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css"> -->
+  <script src="//cdn.jsdelivr.net/npm/gitalk@1.6.2/dist/gitalk.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/blueimp-md5@2.10.0/js/md5.min.js"></script>
+  <script type="text/javascript">
+  var gitalk = new Gitalk({
+    clientID: 'Ov23lisGBQc6tJMO0Q8i',
+    clientSecret: '593e1e93601aceb7d01d3b173d3b31a01344b24d',
+    repo: 'sukurucn.github.io',
+    owner: 'sukurucn',
+    admin: ['sukurucn'],
+    id: md5(location.pathname),
+    distractionFreeMode: true,
+    language: 'zh-CN',
+    enableHotKey: 'true'
+  })
+  gitalk.render('comments')
+  </script>
+      
+
+
+
+
+
+
+
+</body>
+</html>

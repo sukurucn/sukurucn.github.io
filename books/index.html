@@ -1,0 +1,488 @@
+<!DOCTYPE html>
+<html lang=zh>
+<head>
+  <meta charset="utf-8">
+  
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+  <meta name="renderer" content="webkit">
+  <meta http-equiv="Cache-Control" content="no-transform" />
+  <meta http-equiv="Cache-Control" content="no-siteapp" />
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="format-detection" content="telephone=no,email=no,adress=no">
+  <!-- Color theme for statusbar -->
+  <meta name="theme-color" content="#000000" />
+  <!-- 强制页面在当前窗口以独立页面显示,防止别人在框架里调用页面 -->
+  <meta http-equiv="window-target" content="_top" />
+  
+  
+  <title>书单 | 厚实表皮</title>
+  <meta name="description" content="这些是我觉得对 Agent 开发和学习有帮助的书，持续更新。 Agent &#x2F; LLM 方向 Building LLM Apps — Valentina Alto，LLM 应用开发的实战入门。 AI Engineering — Chip Huyen，从训练到部署的全链路 AI 工程实践。 Designing Machine Learning Systems — Chip Huyen，ML">
+<meta property="og:type" content="website">
+<meta property="og:title" content="书单">
+<meta property="og:url" content="http://example.com/books/index.html">
+<meta property="og:site_name" content="厚实表皮">
+<meta property="og:description" content="这些是我觉得对 Agent 开发和学习有帮助的书，持续更新。 Agent &#x2F; LLM 方向 Building LLM Apps — Valentina Alto，LLM 应用开发的实战入门。 AI Engineering — Chip Huyen，从训练到部署的全链路 AI 工程实践。 Designing Machine Learning Systems — Chip Huyen，ML">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2026-06-27T16:00:00.000Z">
+<meta property="article:modified_time" content="2026-06-28T08:05:19.200Z">
+<meta property="article:author" content="sukuru">
+<meta name="twitter:card" content="summary">
+  <!-- Canonical links -->
+  <link rel="canonical" href="http://example.com/books/index.html">
+  
+    <link rel="alternate" href="/atom.xml" title="厚实表皮" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png" type="image/x-icon">
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+  
+  
+  
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk@1.4.0/dist/gitalk.min.css">
+  
+<meta name="generator" content="Hexo 7.3.0"></head>
+
+
+<body class="main-center" itemscope itemtype="http://schema.org/WebPage">
+  <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+  <div class="slimContent">
+    <div class="navbar-header">
+      
+      
+      <div class="profile-block text-center">
+        <a id="avatar" href="https://github.com/sukurucn" target="_blank">
+          <img class="img-circle img-rotate" src="/images/avatar.jpg" width="200" height="200">
+        </a>
+        <h2 id="name" class="hidden-xs hidden-sm">sukuru</h2>
+        <h3 id="title" class="hidden-xs hidden-sm hidden-md">Agent 开发 — 上下文填充 &amp; 模型调优工作流</h3>
+        <small id="location" class="text-muted hidden-xs hidden-sm"><i class="icon icon-map-marker"></i> Hefei, China</small>
+      </div>
+      
+      <div class="search" id="search-form-wrap">
+
+    <form class="search-form sidebar-form">
+        <div class="input-group">
+            <input type="text" class="search-form-input form-control" placeholder="搜索" />
+            <span class="input-group-btn">
+                <button type="submit" class="search-form-submit btn btn-flat" onclick="return false;"><i class="icon icon-search"></i></button>
+            </span>
+        </div>
+    </form>
+    <div class="ins-search">
+  <div class="ins-search-mask"></div>
+  <div class="ins-search-container">
+    <div class="ins-input-wrapper">
+      <input type="text" class="ins-search-input" placeholder="想要查找什么..." x-webkit-speech />
+      <button type="button" class="close ins-close ins-selectable" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+    </div>
+    <div class="ins-section-wrapper">
+      <div class="ins-section-container"></div>
+    </div>
+  </div>
+</div>
+
+
+</div>
+      <button class="navbar-toggle collapsed" type="button" data-toggle="collapse" data-target="#main-navbar" aria-controls="main-navbar" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+    </div>
+    <nav id="main-navbar" class="collapse navbar-collapse" itemscope itemtype="http://schema.org/SiteNavigationElement" role="navigation">
+      <ul class="nav navbar-nav main-nav ">
+        
+        
+        <li class="menu-item menu-item-home">
+          <a href="/.">
+            
+            <i class="icon icon-home-fill"></i>
+            
+            <span class="menu-title">首页</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives">
+            
+            <i class="icon icon-archives-fill"></i>
+            
+            <span class="menu-title">归档</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories">
+            
+            <i class="icon icon-folder"></i>
+            
+            <span class="menu-title">分类</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-repository">
+          <a target="_blank" rel="noopener" href="https://github.com/sukurucn?tab=repositories">
+            
+            <i class="icon icon-project"></i>
+            
+            <span class="menu-title">项目</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-books">
+          <a href="/books">
+            
+            <i class="icon icon-book-fill"></i>
+            
+            <span class="menu-title">书单</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-links">
+          <a href="/links">
+            
+            <i class="icon icon-friendship"></i>
+            
+            <span class="menu-title">友链</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about">
+            
+            <i class="icon icon-cup-fill"></i>
+            
+            <span class="menu-title">关于</span>
+          </a>
+        </li>
+        
+      </ul>
+      
+	
+    <ul class="social-links">
+    	
+        <li><a href="https://github.com/sukurucn" target="_blank" title="Github" data-toggle=tooltip data-placement=top><i class="icon icon-github"></i></a></li>
+        
+        <li><a href="/" target="_blank" title="Home" data-toggle=tooltip data-placement=top><i class="icon icon-home"></i></a></li>
+        
+        <li><a href="tencent://message/?uin=1066744726" target="_blank" title="Qq" data-toggle=tooltip data-placement=top><i class="icon icon-qq"></i></a></li>
+        
+        <li><a href="/atom.xml" target="_blank" title="Rss" data-toggle=tooltip data-placement=top><i class="icon icon-rss"></i></a></li>
+        
+    </ul>
+
+    </nav>
+  </div>
+</header>
+
+  
+    <aside class="sidebar" itemscope itemtype="http://schema.org/WPSideBar">
+  <div class="slimContent">
+    
+      <div class="widget">
+    <h3 class="widget-title">公告</h3>
+    <div class="widget-body">
+        <div id="board">
+            <div class="content">
+                <p>不敢苦工琢磨自己</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">分类</h3>
+    <div class="widget-body">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%8A%80%E6%9C%AF%E5%88%86%E4%BA%AB/">技术分享</a><span class="category-list-count">2</span></li></ul>
+    </div>
+  </div>
+
+
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">归档</h3>
+    <div class="widget-body">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2026/06/">六月 2026</a><span class="archive-list-count">3</span></li></ul>
+    </div>
+  </div>
+
+
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">最新文章</h3>
+    <div class="widget-body">
+      <ul class="recent-post-list list-unstyled no-thumbnail">
+        
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                
+              </p>
+              <p class="item-title">
+                <a href="/2026/06/28/hello-world/" class="title">Hello World</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2026-06-28T03:16:31.063Z" itemprop="datePublished">2026-06-28</time>
+              </p>
+            </div>
+          </li>
+          
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                <a class="category-link" href="/categories/%E6%8A%80%E6%9C%AF%E5%88%86%E4%BA%AB/">技术分享</a>
+              </p>
+              <p class="item-title">
+                <a href="/2026/06/28/agent%E5%BC%80%E5%8F%91%E6%A0%B8%E5%BF%83/" class="title">Agent 开发不是简单的模型调用与 Prompt 编写</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2026-06-27T16:00:00.000Z" itemprop="datePublished">2026-06-28</time>
+              </p>
+            </div>
+          </li>
+          
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                <a class="category-link" href="/categories/%E6%8A%80%E6%9C%AF%E5%88%86%E4%BA%AB/">技术分享</a>
+              </p>
+              <p class="item-title">
+                <a href="/2026/06/28/%E6%A2%AF%E5%BA%A6%E4%B8%8B%E9%99%8D%E4%B8%93%E9%A2%98/" class="title">梯度下降专题</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2026-06-27T16:00:00.000Z" itemprop="datePublished">2026-06-28</time>
+              </p>
+            </div>
+          </li>
+          
+      </ul>
+    </div>
+  </div>
+  
+
+    
+  </div>
+</aside>
+
+  
+  
+<main class="main" role="main">
+  <div class="content">
+  <article id="page-" class="article article-type-page" itemscope itemtype="http://schema.org/BlogPosting">
+    
+    <div class="article-header">
+      
+        
+  
+    <h1 class="article-title" itemprop="name">
+      书单
+    </h1>
+  
+
+      
+      <div class="article-meta">
+        <span class="article-date">
+    <i class="icon icon-calendar-check"></i>
+	<a href="/books/index.html" class="article-date">
+	  <time datetime="2026-06-27T16:00:00.000Z" itemprop="datePublished">2026-06-28</time>
+	</a>
+</span>
+        
+        
+
+        
+
+        <span class="post-comment"><i class="icon icon-comment"></i> <a href="/books/index.html#comments" class="article-comment-link">评论</a></span>
+        
+      </div>
+    </div>
+    <div class="article-entry marked-body" itemprop="articleBody">
+      
+        <p>这些是我觉得对 Agent 开发和学习有帮助的书，持续更新。</p>
+<h2 id="Agent-LLM-方向"><a href="#Agent-LLM-方向" class="headerlink" title="Agent &#x2F; LLM 方向"></a>Agent &#x2F; LLM 方向</h2><ul>
+<li><strong><a target="_blank" rel="noopener" href="https://www.oreilly.com/library/view/building-large-language/9781098160432/">Building LLM Apps</a></strong> — Valentina Alto，LLM 应用开发的实战入门。</li>
+<li><strong><a target="_blank" rel="noopener" href="https://www.oreilly.com/library/view/ai-engineering/9781098164430/">AI Engineering</a></strong> — Chip Huyen，从训练到部署的全链路 AI 工程实践。</li>
+<li><strong><a target="_blank" rel="noopener" href="https://www.oreilly.com/library/view/designing-machine-learning/9781098107956/">Designing Machine Learning Systems</a></strong> — Chip Huyen，ML 系统设计的经典教材，理解生产级 ML 的必备读物。</li>
+</ul>
+<h2 id="编程与工程基础"><a href="#编程与工程基础" class="headerlink" title="编程与工程基础"></a>编程与工程基础</h2><ul>
+<li><strong><a target="_blank" rel="noopener" href="https://www.oreilly.com/library/view/fluent-python-2nd/9781492056348/">Fluent Python</a></strong> — Luciano Ramalho，Python 进阶必读。</li>
+<li><strong><a target="_blank" rel="noopener" href="https://pragprog.com/titles/tpp20/the-pragmatic-programmer-20th-anniversary-edition/">The Pragmatic Programmer</a></strong> — David Thomas &amp; Andrew Hunt，软件工程素养的经典。</li>
+</ul>
+<h2 id="思维与方法"><a href="#思维与方法" class="headerlink" title="思维与方法"></a>思维与方法</h2><ul>
+<li><strong><a target="_blank" rel="noopener" href="https://www.calnewport.com/books/deep-work/">Deep Work</a></strong> — Cal Newport，深度工作的力量，对技术学习帮助极大。</li>
+<li><strong><a target="_blank" rel="noopener" href="https://www.goodreads.com/book/show/15656033-the-beginning-of-infinity">The Beginning of Infinity</a></strong> — David Deutsch，关于知识、解释和创造力的底层思考。</li>
+</ul>
+
+      
+    </div>
+    <div class="article-footer">
+      <blockquote class="mt-2x">
+  <ul class="post-copyright list-unstyled">
+    
+    <li class="post-copyright-link hidden-xs">
+      <strong>本文链接：</strong>
+      <a href="http://example.com/books/index.html" title="书单" target="_blank" rel="external">http://example.com/books/index.html</a>
+    </li>
+    
+    <li class="post-copyright-license">
+      <strong>版权声明： </strong> 本博客所有文章除特别声明外，均采用 <a href="http://creativecommons.org/licenses/by/4.0/deed.zh" target="_blank" rel="external">CC BY 4.0 CN协议</a> 许可协议。转载请注明出处！
+    </li>
+  </ul>
+</blockquote>
+
+
+<div class="panel panel-default panel-badger">
+  <div class="panel-body">
+    <figure class="media">
+      <div class="media-left">
+        <a href="https://github.com/sukurucn" target="_blank" class="img-burn thumb-sm visible-lg">
+          <img src="/images/avatar.jpg" class="img-rounded w-full" alt="">
+        </a>
+      </div>
+      <div class="media-body">
+        <h3 class="media-heading"><a href="https://github.com/sukurucn" target="_blank"><span class="text-dark">sukuru</span><small class="ml-1x">Agent 开发 — 上下文填充 &amp; 模型调优工作流</small></a></h3>
+        <div>不敢苦工琢磨自己</div>
+      </div>
+    </figure>
+  </div>
+</div>
+
+
+    </div>
+  </article>
+  
+    
+  <section id="comments">
+  	
+           
+    
+  </section>
+
+
+  
+</div>
+
+  <nav class="bar bar-footer clearfix" data-stick-bottom>
+  <div class="bar-inner">
+  
+  
+  
+  <div class="bar-right">
+    
+    <div class="share-component" data-sites="weibo,qq,wechat,facebook,twitter" data-mobile-sites="weibo,qq,qzone"></div>
+    
+  </div>
+  </div>
+</nav>
+  
+
+
+</main>
+
+  <footer class="footer" itemscope itemtype="http://schema.org/WPFooter">
+	
+	
+    <ul class="social-links">
+    	
+        <li><a href="https://github.com/sukurucn" target="_blank" title="Github" data-toggle=tooltip data-placement=top><i class="icon icon-github"></i></a></li>
+        
+        <li><a href="/" target="_blank" title="Home" data-toggle=tooltip data-placement=top><i class="icon icon-home"></i></a></li>
+        
+        <li><a href="tencent://message/?uin=1066744726" target="_blank" title="Qq" data-toggle=tooltip data-placement=top><i class="icon icon-qq"></i></a></li>
+        
+        <li><a href="/atom.xml" target="_blank" title="Rss" data-toggle=tooltip data-placement=top><i class="icon icon-rss"></i></a></li>
+        
+    </ul>
+
+    <div class="copyright">
+    	
+        <div class="publishby">
+        	Theme by <a href="https://github.com/cofess" target="_blank"> cofess </a>base on <a href="https://github.com/cofess/hexo-theme-pure" target="_blank">pure</a>.
+        </div>
+    </div>
+</footer>
+  <script src="//cdn.jsdelivr.net/npm/jquery@1.12.4/dist/jquery.min.js"></script>
+<script>
+window.jQuery || document.write('<script src="js/jquery.min.js"><\/script>')
+</script>
+
+<script src="/js/plugin.min.js"></script>
+
+
+<script src="/js/application.js"></script>
+
+
+    <script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: '文章',
+            PAGES: '页面',
+            CATEGORIES: '分类',
+            TAGS: '标签',
+            UNTITLED: '(未命名)',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+
+<script src="/js/insight.js"></script>
+
+
+
+
+
+
+
+   
+    
+  <!-- <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css"> -->
+  <script src="//cdn.jsdelivr.net/npm/gitalk@1.6.2/dist/gitalk.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/blueimp-md5@2.10.0/js/md5.min.js"></script>
+  <script type="text/javascript">
+  var gitalk = new Gitalk({
+    clientID: 'Ov23lisGBQc6tJMO0Q8i',
+    clientSecret: '593e1e93601aceb7d01d3b173d3b31a01344b24d',
+    repo: 'sukurucn.github.io',
+    owner: 'sukurucn',
+    admin: ['sukurucn'],
+    id: md5(location.pathname),
+    distractionFreeMode: true,
+    language: 'zh-CN',
+    enableHotKey: 'true'
+  })
+  gitalk.render('comments')
+  </script>
+      
+
+
+
+
+
+
+
+</body>
+</html>

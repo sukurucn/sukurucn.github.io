@@ -242,7 +242,7 @@
                 <a class="category-link" href="/categories/%E6%8A%80%E6%9C%AF%E5%88%86%E4%BA%AB/">技术分享</a>
               </p>
               <p class="item-title">
-                <a href="/2026/06/28/hello-world/" class="title">Hello World</a>
+                <a href="/2026/06/28/agent%E5%BC%80%E5%8F%91%E6%A0%B8%E5%BF%83/" class="title">Agent 开发不是简单的模型调用与 Prompt 编写</a>
               </p>
               <p class="item-date">
                 <time datetime="2026-06-27T16:00:00.000Z" itemprop="datePublished">2026-06-28</time>
@@ -257,7 +257,7 @@
                 <a class="category-link" href="/categories/%E6%8A%80%E6%9C%AF%E5%88%86%E4%BA%AB/">技术分享</a>
               </p>
               <p class="item-title">
-                <a href="/2026/06/28/agent%E5%BC%80%E5%8F%91%E6%A0%B8%E5%BF%83/" class="title">Agent 开发不是简单的模型调用与 Prompt 编写</a>
+                <a href="/2026/06/28/hello-world/" class="title">Hello World</a>
               </p>
               <p class="item-date">
                 <time datetime="2026-06-27T16:00:00.000Z" itemprop="datePublished">2026-06-28</time>
@@ -349,6 +349,7 @@
 <p><strong>价值</strong>：让 Agent 可连贯理解长期任务、精准捕捉隐性需求，从”被动应答工具”变为”贴合场景的智能主体”。</p>
 <h3 id="2-模型调优工作流：场景落地与自主进化的核心骨架"><a href="#2-模型调优工作流：场景落地与自主进化的核心骨架" class="headerlink" title="2. 模型调优工作流：场景落地与自主进化的核心骨架"></a>2. 模型调优工作流：场景落地与自主进化的核心骨架</h3><p><strong>本质</strong>：标准化、自动化、可迭代的全链路调优体系。</p>
 <p><strong>覆盖环节</strong>：</p>
+<div class="table-container">
 <table>
 <thead>
 <tr>
@@ -356,7 +357,8 @@
 <th>说明</th>
 </tr>
 </thead>
-<tbody><tr>
+<tbody>
+<tr>
 <td>数据预处理</td>
 <td>清洗、标注、结构化原始数据</td>
 </tr>
@@ -370,7 +372,7 @@
 </tr>
 <tr>
 <td>工具调用逻辑优化</td>
-<td>优化 Function Call &#x2F; Tool Use 链路</td>
+<td>优化 Function Call / Tool Use 链路</td>
 </tr>
 <tr>
 <td>决策路径迭代</td>
@@ -384,24 +386,27 @@
 <td>效果评估闭环</td>
 <td>建立评估指标，量化迭代效果</td>
 </tr>
-</tbody></table>
+</tbody>
+</table>
+</div>
 <p><strong>核心特点</strong>：聚焦场景化、轻量化、针对性优化，而非通用大模型的全局参数调优。</p>
 <p><strong>价值</strong>：持续提升特定业务场景下的决策准确率、执行效率与输出规范性。</p>
 <hr>
 <h2 id="三、闭环迭代逻辑"><a href="#三、闭环迭代逻辑" class="headerlink" title="三、闭环迭代逻辑"></a>三、闭环迭代逻辑</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">上下文填充积累真实交互与任务执行数据</span><br><span class="line">        ↓</span><br><span class="line">调优工作流完成数据清洗、标注与针对性优化</span><br><span class="line">        ↓</span><br><span class="line">迭代后的能力回灌至业务场景</span><br><span class="line">        ↓</span><br><span class="line">新的交互数据反向驱动下一轮优化</span><br><span class="line">        ↓</span><br><span class="line">      形成完整闭环</span><br></pre></td></tr></table></figure>
-
 <p>二者相互驱动，形成自主进化的完整闭环。</p>
 <hr>
 <h2 id="四、延伸能力模块"><a href="#四、延伸能力模块" class="headerlink" title="四、延伸能力模块"></a>四、延伸能力模块</h2><p>基于两大核心，Agent 开发进一步延伸出四大能力模块：</p>
+<div class="table-container">
 <table>
 <thead>
 <tr>
 <th>模块</th>
-<th>数据来源 &#x2F; 能力支撑</th>
+<th>数据来源 / 能力支撑</th>
 <th>职责</th>
 </tr>
 </thead>
-<tbody><tr>
+<tbody>
+<tr>
 <td>记忆模块</td>
 <td>上下文填充提供数据来源</td>
 <td>短期对话记忆 + 长期业务记忆</td>
@@ -421,7 +426,9 @@
 <td>模型调优工作流提供能力支撑</td>
 <td>自我复盘纠错</td>
 </tr>
-</tbody></table>
+</tbody>
+</table>
+</div>
 <hr>
 <h2 id="五、核心本质总结"><a href="#五、核心本质总结" class="headerlink" title="五、核心本质总结"></a>五、核心本质总结</h2><ul>
 <li><strong>上下文填充</strong>：解决场景认知与信息连贯问题</li>
@@ -453,13 +460,9 @@
   
   <ul class="pager pull-left">
     
-    <li class="prev">
-      <a href="/2026/06/28/hello-world/" title="Hello World"><i class="icon icon-angle-left" aria-hidden="true"></i><span>&nbsp;&nbsp;上一篇</span></a>
-    </li>
-    
     
     <li class="next">
-      <a href="/2026/06/28/%E6%A2%AF%E5%BA%A6%E4%B8%8B%E9%99%8D%E4%B8%93%E9%A2%98/" title="梯度下降专题"><span>下一篇&nbsp;&nbsp;</span><i class="icon icon-angle-right" aria-hidden="true"></i></a>
+      <a href="/2026/06/28/hello-world/" title="Hello World"><span>下一篇&nbsp;&nbsp;</span><i class="icon icon-angle-right" aria-hidden="true"></i></a>
     </li>
     
     

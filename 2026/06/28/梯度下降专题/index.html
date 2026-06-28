@@ -64,7 +64,7 @@
           <img class="img-circle img-rotate" src="/images/avatar.jpg" width="200" height="200">
         </a>
         <h2 id="name" class="hidden-xs hidden-sm">sukuru</h2>
-        <h3 id="title" class="hidden-xs hidden-sm hidden-md">Agent 开发 — 上下文填充 &amp; 模型调优工作流</h3>
+        <h3 id="title" class="hidden-xs hidden-sm hidden-md">Agent 开发&lt;br&gt;上下文填充 &amp; 模型调优工作流</h3>
         <small id="location" class="text-muted hidden-xs hidden-sm"><i class="icon icon-map-marker"></i> Hefei, China</small>
       </div>
       
@@ -201,7 +201,7 @@
     <div class="widget-body">
         <div id="board">
             <div class="content">
-                <p>不敢苦工琢磨自己</p>
+                <p>已决心誓死捍卫a500</p>
             </div>
         </div>
     </div>
@@ -343,30 +343,31 @@
 <h2 id="一、为什么需要梯度下降？"><a href="#一、为什么需要梯度下降？" class="headerlink" title="一、为什么需要梯度下降？"></a>一、为什么需要梯度下降？</h2><p>正规方程求解极值在数据维度较小时往往比较合适，但随着特征数量上升，求解会变得非常复杂。这时就引入了梯度下降算法。</p>
 <hr>
 <h2 id="二、损失函数"><a href="#二、损失函数" class="headerlink" title="二、损失函数"></a>二、损失函数</h2><h3 id="MAE（平均绝对误差）"><a href="#MAE（平均绝对误差）" class="headerlink" title="MAE（平均绝对误差）"></a>MAE（平均绝对误差）</h3><p><strong>定义</strong>：预测值与真实值之差的绝对值的平均值。</p>
-<p>$$<br>\text{MAE} &#x3D; \frac{1}{m} \sum_{i&#x3D;1}^{m} |y_i - \hat{y}_i|<br>$$</p>
-<p><strong>特点</strong>：</p>
+<script type="math/tex; mode=display">
+\text{MAE} = \frac{1}{m} \sum_{i=1}^{m} |y_i - \hat{y}_i|</script><p><strong>特点</strong>：</p>
 <ul>
 <li>对异常值不敏感，因为绝对值不会放大误差</li>
-<li>量纲与原数据相同，解释直观（如预测房价，MAE&#x3D;10 万代表平均偏差 10 万）</li>
+<li>量纲与原数据相同，解释直观（如预测房价，MAE=10 万代表平均偏差 10 万）</li>
 <li>缺点是<strong>梯度在零点处不可导</strong>，优化时不如 MSE 平滑</li>
 </ul>
 <h3 id="MSE（均方误差）"><a href="#MSE（均方误差）" class="headerlink" title="MSE（均方误差）"></a>MSE（均方误差）</h3><p><strong>定义</strong>：预测值与真实值之差的平方的平均值。</p>
-<p>$$<br>\text{MSE} &#x3D; \frac{1}{m} \sum_{i&#x3D;1}^{m} (y_i - \hat{y}_i)^2<br>$$</p>
-<p><strong>特点</strong>：</p>
+<script type="math/tex; mode=display">
+\text{MSE} = \frac{1}{m} \sum_{i=1}^{m} (y_i - \hat{y}_i)^2</script><p><strong>特点</strong>：</p>
 <ul>
 <li>对异常值<strong>非常敏感</strong>，平方会放大极端误差（误差 10 → 放大为 100）</li>
 <li>量纲是原数据量纲的平方，解释性稍弱</li>
 <li>数学性质优良，<strong>处处可导</strong>，凸函数，是线性回归等模型的首选</li>
 </ul>
 <h3 id="RMSE（均方根误差）"><a href="#RMSE（均方根误差）" class="headerlink" title="RMSE（均方根误差）"></a>RMSE（均方根误差）</h3><p><strong>定义</strong>：MSE 的平方根，量纲回归原数据。</p>
-<p>$$<br>\text{RMSE} &#x3D; \sqrt{\text{MSE}} &#x3D; \sqrt{\frac{1}{m} \sum_{i&#x3D;1}^{m} (y_i - \hat{y}_i)^2}<br>$$</p>
-<p><strong>特点</strong>：</p>
+<script type="math/tex; mode=display">
+\text{RMSE} = \sqrt{\text{MSE}} = \sqrt{\frac{1}{m} \sum_{i=1}^{m} (y_i - \hat{y}_i)^2}</script><p><strong>特点</strong>：</p>
 <ul>
 <li>保留 MSE 放大较大误差的特性，对异常值敏感</li>
 <li>量纲与原数据相同，<strong>应用最常用的回归评估指标之一</strong></li>
 </ul>
 <hr>
 <h2 id="三、最小化损失函数"><a href="#三、最小化损失函数" class="headerlink" title="三、最小化损失函数"></a>三、最小化损失函数</h2><p>为了拟合效果尽可能还原数据，需要让损失函数最小化。两种方式：</p>
+<div class="table-container">
 <table>
 <thead>
 <tr>
@@ -374,7 +375,8 @@
 <th>说明</th>
 </tr>
 </thead>
-<tbody><tr>
+<tbody>
+<tr>
 <td><strong>正规方程</strong></td>
 <td>对原函数求导，求得极值点即最低点</td>
 </tr>
@@ -382,22 +384,24 @@
 <td><strong>梯度下降</strong></td>
 <td>沿着梯度的反向，找到下降最快的方向</td>
 </tr>
-</tbody></table>
-<p>在一维线性回归 $y &#x3D; ax + b$ 中带入求解比较简单，但多维意味着巨大计算量，因此采用梯度下降。</p>
-<h3 id="核心公式"><a href="#核心公式" class="headerlink" title="核心公式"></a>核心公式</h3><p>$$<br>\theta &#x3D; \theta - \eta \nabla J(\theta)<br>$$</p>
-<ul>
+</tbody>
+</table>
+</div>
+<p>在一维线性回归 $y = ax + b$ 中带入求解比较简单，但多维意味着巨大计算量，因此采用梯度下降。</p>
+<h3 id="核心公式"><a href="#核心公式" class="headerlink" title="核心公式"></a>核心公式</h3><script type="math/tex; mode=display">
+\theta = \theta - \eta \nabla J(\theta)</script><ul>
 <li>$\theta$ 是参数向量</li>
 <li>$\eta$ 是学习率（步长）</li>
 <li>$\nabla J(\theta)$ 是梯度</li>
 </ul>
 <p>以 MSE 为例，对单个样本 $(wx - y)^2$ 求偏导得到 $2(wx - y)x$，常数 2 统一到学习率里。</p>
 <hr>
-<h2 id="四、几种梯度下降算法"><a href="#四、几种梯度下降算法" class="headerlink" title="四、几种梯度下降算法"></a>四、几种梯度下降算法</h2><h3 id="1-FGD（全梯度下降-BGD）"><a href="#1-FGD（全梯度下降-BGD）" class="headerlink" title="1. FGD（全梯度下降 &#x2F; BGD）"></a>1. FGD（全梯度下降 &#x2F; BGD）</h3><blockquote>
+<h2 id="四、几种梯度下降算法"><a href="#四、几种梯度下降算法" class="headerlink" title="四、几种梯度下降算法"></a>四、几种梯度下降算法</h2><h3 id="1-FGD（全梯度下降-BGD）"><a href="#1-FGD（全梯度下降-BGD）" class="headerlink" title="1. FGD（全梯度下降 / BGD）"></a>1. FGD（全梯度下降 / BGD）</h3><blockquote>
 <p>最坚持古法的设计，最本源的算法，最凶狠的计算。</p>
 </blockquote>
 <p>每次迭代使用<strong>全部样本</strong>计算梯度。数据量大时计算量巨大，内存爆炸。</p>
 <h3 id="2-SGD（随机梯度下降）"><a href="#2-SGD（随机梯度下降）" class="headerlink" title="2. SGD（随机梯度下降）"></a>2. SGD（随机梯度下降）</h3><p>每次只用<strong>一个样本</strong>，速度快，但震荡厉害，收敛不稳，梯度方差大。</p>
-<h3 id="3-MBGD（小批量梯度下降）⭐-工业最常用"><a href="#3-MBGD（小批量梯度下降）⭐-工业最常用" class="headerlink" title="3. MBGD（小批量梯度下降）⭐ 工业最常用"></a>3. MBGD（小批量梯度下降）⭐ 工业最常用</h3><p>折中方案：每次取一小批 $b$ 个样本（如 32&#x2F;64&#x2F;128）。</p>
+<h3 id="3-MBGD（小批量梯度下降）⭐-工业最常用"><a href="#3-MBGD（小批量梯度下降）⭐-工业最常用" class="headerlink" title="3. MBGD（小批量梯度下降）⭐ 工业最常用"></a>3. MBGD（小批量梯度下降）⭐ 工业最常用</h3><p>折中方案：每次取一小批 $b$ 个样本（如 32/64/128）。</p>
 <ul>
 <li>$1 &lt; b &lt; m$，兼顾 BGD 稳定与 SGD 速度</li>
 <li>梯度平滑，震荡小</li>
@@ -410,7 +414,8 @@
 <li>计算该样本最新梯度 $\nabla L_i(w_t)$ 并更新记忆 $g_i$</li>
 <li>参数更新用<strong>所有 $N$ 个样本梯度的平均值</strong>：</li>
 </ol>
-<p>$$<br>w_{t+1} &#x3D; w_t - \frac{\eta}{N} \left( \nabla L_i(w_t) + \sum_{j \neq i} g_j \right)<br>$$</p>
+<script type="math/tex; mode=display">
+w_{t+1} = w_t - \frac{\eta}{N} \left( \nabla L_i(w_t) + \sum_{j \neq i} g_j \right)</script><div class="table-container">
 <table>
 <thead>
 <tr>
@@ -419,7 +424,8 @@
 <th>SAG</th>
 </tr>
 </thead>
-<tbody><tr>
+<tbody>
+<tr>
 <td>梯度来源</td>
 <td>只用当前样本（健忘症）</td>
 <td>当前样本 + 所有历史记忆</td>
@@ -439,7 +445,9 @@
 <td>大，”蛇皮走位”</td>
 <td>压低方差，路径更平滑</td>
 </tr>
-</tbody></table>
+</tbody>
+</table>
+</div>
 <hr>
 <h2 id="五、收敛的优化"><a href="#五、收敛的优化" class="headerlink" title="五、收敛的优化"></a>五、收敛的优化</h2><p>深度学习网络的损失函数可能是<strong>非凸函数</strong>，传统 SGD 难以很好收敛。</p>
 <h3 id="Momentum（动量随机梯度下降）"><a href="#Momentum（动量随机梯度下降）" class="headerlink" title="Momentum（动量随机梯度下降）"></a>Momentum（动量随机梯度下降）</h3><p><strong>解决的痛点</strong>：</p>
@@ -448,7 +456,11 @@
 <li>平缓区域缓慢：梯度趋于零时进展停滞</li>
 </ul>
 <p><strong>核心思想</strong>：小球下坡不仅看脚下坡度，还继承过去所有梯度信息的”惯性”。</p>
-<p>$$<br>\begin{aligned}<br>v_t &amp;&#x3D; \beta v_{t-1} + (1 - \beta) g_t \<br>\theta_{t+1} &amp;&#x3D; \theta_t - \alpha v_t<br>\end{aligned}<br>$$</p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+v_t &= \beta v_{t-1} + (1 - \beta) g_t \\
+\theta_{t+1} &= \theta_t - \alpha v_t
+\end{aligned}</script><div class="table-container">
 <table>
 <thead>
 <tr>
@@ -457,7 +469,8 @@
 <th>Momentum SGD</th>
 </tr>
 </thead>
-<tbody><tr>
+<tbody>
+<tr>
 <td>更新方向</td>
 <td>仅当前梯度，方向变化剧烈</td>
 <td>历史梯度加权平均，方向稳定</td>
@@ -472,39 +485,53 @@
 <td>近视徒步者，只看脚下</td>
 <td>推下坡的雪球，惯性越来越大</td>
 </tr>
-</tbody></table>
+</tbody>
+</table>
+</div>
 <h3 id="NAG（Nesterov-Accelerated-Gradient）"><a href="#NAG（Nesterov-Accelerated-Gradient）" class="headerlink" title="NAG（Nesterov Accelerated Gradient）"></a>NAG（Nesterov Accelerated Gradient）</h3><p>Momentum 的改进——“<strong>向前看一步</strong>“：</p>
 <p>先根据当前动量预估未来位置，在预估位置计算梯度，再进行修正。</p>
-<p>$$<br>\begin{aligned}<br>\theta_{lookahead} &amp;&#x3D; \theta_t - \alpha \beta v_{t-1} \<br>g_t &amp;&#x3D; \nabla J(\theta_{lookahead}) \<br>v_t &amp;&#x3D; \beta v_{t-1} + (1 - \beta) g_t \<br>\theta_{t+1} &amp;&#x3D; \theta_t - \alpha v_t<br>\end{aligned}<br>$$</p>
-<blockquote>
+<script type="math/tex; mode=display">
+\begin{aligned}
+\theta_{lookahead} &= \theta_t - \alpha \beta v_{t-1} \\
+g_t &= \nabla J(\theta_{lookahead}) \\
+v_t &= \beta v_{t-1} + (1 - \beta) g_t \\
+\theta_{t+1} &= \theta_t - \alpha v_t
+\end{aligned}</script><blockquote>
 <p>如同滑雪高手提前判断前方坡道来调整重心，而非只看脚下。</p>
 </blockquote>
 <p><strong>收敛三阶段</strong>：</p>
 <ol>
 <li><strong>下坡</strong>：梯度方向一致，动量迅速累积，速度越来越快</li>
 <li><strong>靠近谷底</strong>：梯度变小，动量提供阻尼平滑，抵抗停滞</li>
-<li><strong>到达极小值</strong>：梯度为零，$v_t &#x3D; \beta^t v_0$ 指数衰减归零，稳定驻留</li>
+<li><strong>到达极小值</strong>：梯度为零，$v_t = \beta^t v_0$ 指数衰减归零，稳定驻留</li>
 </ol>
 <hr>
 <h2 id="六、AdaGrad-vs-RMSprop（学习率自适应）"><a href="#六、AdaGrad-vs-RMSprop（学习率自适应）" class="headerlink" title="六、AdaGrad vs RMSprop（学习率自适应）"></a>六、AdaGrad vs RMSprop（学习率自适应）</h2><h3 id="共同思想"><a href="#共同思想" class="headerlink" title="共同思想"></a>共同思想</h3><p>对每个参数<strong>单独自适应学习率</strong>：历史梯度波动大的参数，自动减小更新步长。</p>
 <p><strong>通用公式</strong>：</p>
-<p>$$<br>\theta &#x3D; \theta - \frac{\alpha}{\sqrt{\text{缓存}} + \varepsilon} g<br>$$</p>
-<h3 id="AdaGrad"><a href="#AdaGrad" class="headerlink" title="AdaGrad"></a>AdaGrad</h3><p><strong>缓存规则</strong>：梯度平方永久累加 $G_t &#x3D; G_{t-1} + g_t^2$</p>
+<script type="math/tex; mode=display">
+\theta = \theta - \frac{\alpha}{\sqrt{\text{缓存}} + \varepsilon} g</script><h3 id="AdaGrad"><a href="#AdaGrad" class="headerlink" title="AdaGrad"></a>AdaGrad</h3><p><strong>缓存规则</strong>：梯度平方永久累加 $G<em>t = G</em>{t-1} + g_t^2$</p>
 <ul>
 <li>✅ 稀疏特征效果优秀，无需手动衰减学习率</li>
 <li>❌ 缓存只增不减，分母过大 → <strong>学习率趋近 0，提前停止训练</strong></li>
 </ul>
 <h3 id="RMSprop（改进-AdaGrad）"><a href="#RMSprop（改进-AdaGrad）" class="headerlink" title="RMSprop（改进 AdaGrad）"></a>RMSprop（改进 AdaGrad）</h3><p><strong>缓存规则</strong>：梯度平方<strong>指数滑动平均</strong></p>
-<p>$$<br>E[g^2]<em>t &#x3D; \gamma E[g^2]</em>{t-1} + (1 - \gamma) g_t^2<br>$$</p>
-<ul>
+<script type="math/tex; mode=display">
+E[g^2]_t = \gamma E[g^2]_{t-1} + (1 - \gamma) g_t^2</script><ul>
 <li>✅ 解决学习率过早归零问题，全程稳定更新，深度学习常用</li>
 <li>❌ 无动量机制，梯度震荡场景弱于带动量算法</li>
 </ul>
 <hr>
 <h2 id="七、Adam-⭐-工业主流"><a href="#七、Adam-⭐-工业主流" class="headerlink" title="七、Adam ⭐ 工业主流"></a>七、Adam ⭐ 工业主流</h2><p><strong>结合了 Momentum + RMSprop</strong>，本质拼装但好用。</p>
-<p>$$<br>\begin{aligned}<br>m_t &amp;&#x3D; \beta_1 m_{t-1} + (1 - \beta_1) g_t \quad &amp;\text{(动量)} \<br>v_t &amp;&#x3D; \beta_2 v_{t-1} + (1 - \beta_2) g_t^2 \quad &amp;\text{(自适应学习率)} \<br>\hat{m}_t &amp;&#x3D; \frac{m_t}{1 - \beta_1^t} \quad &amp;\text{(偏差修正)} \<br>\hat{v}<em>t &amp;&#x3D; \frac{v_t}{1 - \beta_2^t} \<br>\theta</em>{t+1} &amp;&#x3D; \theta_t - \frac{\alpha \hat{m}_t}{\sqrt{\hat{v}_t} + \varepsilon}<br>\end{aligned}<br>$$</p>
-<hr>
-<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><table>
+<script type="math/tex; mode=display">
+\begin{aligned}
+m_t &= \beta_1 m_{t-1} + (1 - \beta_1) g_t \quad &\text{(动量)} \\
+v_t &= \beta_2 v_{t-1} + (1 - \beta_2) g_t^2 \quad &\text{(自适应学习率)} \\
+\hat{m}_t &= \frac{m_t}{1 - \beta_1^t} \quad &\text{(偏差修正)} \\
+\hat{v}_t &= \frac{v_t}{1 - \beta_2^t} \\
+\theta_{t+1} &= \theta_t - \frac{\alpha \hat{m}_t}{\sqrt{\hat{v}_t} + \varepsilon}
+\end{aligned}</script><hr>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><div class="table-container">
+<table>
 <thead>
 <tr>
 <th>算法</th>
@@ -512,7 +539,8 @@
 <th>适用场景</th>
 </tr>
 </thead>
-<tbody><tr>
+<tbody>
+<tr>
 <td>BGD</td>
 <td>全量梯度</td>
 <td>小数据</td>
@@ -535,7 +563,7 @@
 <tr>
 <td>Momentum</td>
 <td>惯性加速</td>
-<td>峡谷&#x2F;震荡地形</td>
+<td>峡谷/震荡地形</td>
 </tr>
 <tr>
 <td>NAG</td>
@@ -557,7 +585,9 @@
 <td><strong>Momentum + RMSprop</strong></td>
 <td><strong>工业主流默认</strong></td>
 </tr>
-</tbody></table>
+</tbody>
+</table>
+</div>
 
       
     </div>
@@ -586,7 +616,7 @@
         </a>
       </div>
       <div class="media-body">
-        <h3 class="media-heading"><a href="https://github.com/sukurucn" target="_blank"><span class="text-dark">sukuru</span><small class="ml-1x">Agent 开发 — 上下文填充 &amp; 模型调优工作流</small></a></h3>
+        <h3 class="media-heading"><a href="https://github.com/sukurucn" target="_blank"><span class="text-dark">sukuru</span><small class="ml-1x">Agent 开发&lt;br&gt;上下文填充 &amp; 模型调优工作流</small></a></h3>
         <div>不敢苦工琢磨自己</div>
       </div>
     </figure>

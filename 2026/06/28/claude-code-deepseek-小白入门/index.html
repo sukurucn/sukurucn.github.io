@@ -26,7 +26,7 @@
 <meta property="og:description" content="Node.js 安装、Git 配置、Claude Code CLI 安装、绕过认证、接入 DeepSeek API 的完整图文流程。">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2026-06-27T16:00:00.000Z">
-<meta property="article:modified_time" content="2026-06-29T06:30:19.257Z">
+<meta property="article:modified_time" content="2026-06-29T06:35:36.179Z">
 <meta property="article:author" content="sukuru">
 <meta property="article:tag" content="Claude Code">
 <meta property="article:tag" content="DeepSeek">
@@ -433,11 +433,37 @@
 
 <p>Windows 上通常在 <code>C:\Users\你的用户名\AppData\Roaming\npm</code>。</p>
 <h3 id="5-2-API-调用报-401-403"><a href="#5-2-API-调用报-401-403" class="headerlink" title="5.2 API 调用报 401&#x2F;403"></a>5.2 API 调用报 401&#x2F;403</h3><p>DeepSeek 的余额不足、Key 失效、或 <code>ANTHROPIC_BASE_URL</code> 拼写错误。重新获取 Key 或检查环境变量大小写。</p>
-<h3 id="5-3-cc-switch-是什么"><a href="#5-3-cc-switch-是什么" class="headerlink" title="5.3 cc switch 是什么"></a>5.3 <code>cc switch</code> 是什么</h3><p><code>claude config</code> 可以切换模型或配置，但不是必须的。用 DeepSeek 时模型的切换由 API 后端自动处理，不需要手动 <code>switch</code>。</p>
-<h3 id="5-4-DeepSeek-支持哪些模型"><a href="#5-4-DeepSeek-支持哪些模型" class="headerlink" title="5.4 DeepSeek 支持哪些模型"></a>5.4 DeepSeek 支持哪些模型</h3><p>配置完成后，在 <code>claude</code> 对话中自动使用 DeepSeek 默认模型。如需指定模型，添加环境变量：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">export</span> ANTHROPIC_MODEL=<span class="string">&quot;deepseek-chat&quot;</span>  <span class="comment"># 或 deepseek-reasoner</span></span><br></pre></td></tr></table></figure>
+<h3 id="5-3-model-切换模型（cc-switch）"><a href="#5-3-model-切换模型（cc-switch）" class="headerlink" title="5.3 &#x2F;model 切换模型（cc switch）"></a>5.3 &#x2F;model 切换模型（cc switch）</h3><p>Claude Code 交互模式内使用 <code>/model</code> 命令可以切换当前对话使用的模型，相当于 CLI 参数 <code>--model</code>：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">/model claude-sonnet-4-6    # 切换到 Sonnet 4.6</span><br><span class="line">/model claude-haiku-4-5     # 切换 Haiku（更快更便宜）</span><br><span class="line">/model                       # 打开可视化模型选择器</span><br></pre></td></tr></table></figure>
 
-<h3 id="5-5-速度慢"><a href="#5-5-速度慢" class="headerlink" title="5.5 速度慢"></a>5.5 速度慢</h3><p>DeepSeek 免费&#x2F;低价 API 存在并发限制，高峰期可能排队。用 <code>claude -p &quot;简短问题&quot;</code> 测试延迟。持续卡顿的话考虑充值 DeepSeek 余额提高优先级。</p>
+<p>如果你配的是 DeepSeek 后端，模型切换能力取决于 DeepSeek 支持哪些兼容模型名。常用的：</p>
+<table>
+<thead>
+<tr>
+<th>命令</th>
+<th>对应模型</th>
+<th>特点</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>/model deepseek-chat</code></td>
+<td>DeepSeek V3</td>
+<td>默认，速度快</td>
+</tr>
+<tr>
+<td><code>/model deepseek-reasoner</code></td>
+<td>DeepSeek R1</td>
+<td>深度推理，慢但强</td>
+</tr>
+</tbody></table>
+<p>也可以设置环境变量指定默认模型：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">setx ANTHROPIC_MODEL <span class="string">&quot;deepseek-chat&quot;</span></span><br></pre></td></tr></table></figure>
+
+<p>重启终端后生效，之后每次启动 Claude Code 都会用这个模型。想临时换模型在交互模式用 <code>/model</code> 切就行，不需要改环境变量。</p>
+<h3 id="5-4-Claude-Code-桌面版绕过登录"><a href="#5-4-Claude-Code-桌面版绕过登录" class="headerlink" title="5.4 Claude Code 桌面版绕过登录"></a>5.4 Claude Code 桌面版绕过登录</h3><p>桌面版启动后默认强制登录 Anthropic 账号。如果要配合 DeepSeek API，目前没有任何已知方式可以让桌面版跳过认证。因此只能使用 <strong>CLI 命令行版本</strong>（npm 安装的 <code>claude</code> 命令）。</p>
+<p>CLI 版功能与桌面版一致，只是没有 GUI 窗口，在终端里用。VS Code 用户可以安装 <code>Claude Code</code> 插件，插件内置终端面板，体验接近桌面版。</p>
+<h3 id="5-5-DeepSeek-支持哪些模型"><a href="#5-5-DeepSeek-支持哪些模型" class="headerlink" title="5.5 DeepSeek 支持哪些模型"></a>5.5 DeepSeek 支持哪些模型</h3><p>换成更实用的 <code>/model</code> 命令切 deepseek-chat &#x2F; deepseek-reasoner。只要不是在对话中途切换（会报错），切换后新对话即生效。CLI 命令行版本是目前唯一可行的方案，桌面版受限于强制 OAuth 登录，无法配合第三方 API 使用。</p>
+<h3 id="5-6-速度慢"><a href="#5-6-速度慢" class="headerlink" title="5.6 速度慢"></a>5.6 速度慢</h3><p>DeepSeek 免费&#x2F;低价 API 存在并发限制，高峰期可能排队。用 <code>claude -p &quot;简短问题&quot;</code> 测试延迟。持续卡顿的话考虑充值 DeepSeek 余额提高优先级。</p>
 <hr>
 <h2 id="六、日常使用流程"><a href="#六、日常使用流程" class="headerlink" title="六、日常使用流程"></a>六、日常使用流程</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 进入项目目录</span></span><br><span class="line"><span class="built_in">cd</span> your-project</span><br><span class="line"></span><br><span class="line"><span class="comment"># 启动 Claude Code</span></span><br><span class="line">claude</span><br><span class="line"></span><br><span class="line"><span class="comment"># 或直接提问（不进入交互模式）</span></span><br><span class="line">claude -p <span class="string">&quot;解释这个文件的代码逻辑&quot;</span></span><br></pre></td></tr></table></figure>
 

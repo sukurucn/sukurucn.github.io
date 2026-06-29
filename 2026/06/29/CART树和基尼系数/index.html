@@ -17,16 +17,35 @@
   <meta http-equiv="window-target" content="_top" />
   
   
-  <title>厚实表皮</title>
-  <meta property="og:type" content="website">
-<meta property="og:title" content="厚实表皮">
-<meta property="og:url" content="https://cjay.site/index.html">
+  <title>CART树和基尼系数 | 厚实表皮</title>
+  <meta name="description" content="CART 分类回归树原理、基尼不纯度、剪枝策略与工业落地完整梳理。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="CART树和基尼系数">
+<meta property="og:url" content="https://cjay.site/2026/06/29/CART%E6%A0%91%E5%92%8C%E5%9F%BA%E5%B0%BC%E7%B3%BB%E6%95%B0/index.html">
 <meta property="og:site_name" content="厚实表皮">
+<meta property="og:description" content="CART 分类回归树原理、基尼不纯度、剪枝策略与工业落地完整梳理。">
 <meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://cjay.site/attachment/cart-1.webp">
+<meta property="og:image" content="https://cjay.site/attachment/cart-2.webp">
+<meta property="og:image" content="https://cjay.site/attachment/cart-3.webp">
+<meta property="og:image" content="https://cjay.site/attachment/cart-4.webp">
+<meta property="og:image" content="https://cjay.site/attachment/cart-5.webp">
+<meta property="og:image" content="https://cjay.site/attachment/cart-6.webp">
+<meta property="og:image" content="https://cjay.site/attachment/cart-7.webp">
+<meta property="og:image" content="https://cjay.site/attachment/cart-8.webp">
+<meta property="og:image" content="https://cjay.site/attachment/cart-9.webp">
+<meta property="article:published_time" content="2026-06-28T16:00:00.000Z">
+<meta property="article:modified_time" content="2026-06-29T06:44:25.899Z">
 <meta property="article:author" content="sukuru">
+<meta property="article:tag" content="机器学习">
+<meta property="article:tag" content="CART">
+<meta property="article:tag" content="决策树">
+<meta property="article:tag" content="基尼系数">
+<meta property="article:tag" content="剪枝">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://cjay.site/attachment/cart-1.webp">
   <!-- Canonical links -->
-  <link rel="canonical" href="https://cjay.site/index.html">
+  <link rel="canonical" href="https://cjay.site/2026/06/29/CART%E6%A0%91%E5%92%8C%E5%9F%BA%E5%B0%BC%E7%B3%BB%E6%95%B0/index.html">
   
     <link rel="alternate" href="/atom.xml" title="厚实表皮" type="application/atom+xml">
   
@@ -309,230 +328,219 @@
 </aside>
 
   
-  <main class="main" role="main">
   
-  <div class="content article-list">
+<main class="main" role="main">
+  <div class="content">
+  <article id="post-CART树和基尼系数" class="article article-type-post" itemscope itemtype="http://schema.org/BlogPosting">
     
-      <article class="article article-type-post" itemscope itemtype="http://schema.org/BlogPosting">
-  <div class="article-header">
-    
+    <div class="article-header">
+      
+        
   
-    <h1 itemprop="name">
-      <a class="article-title" href="/2026/06/29/CART%E6%A0%91%E5%92%8C%E5%9F%BA%E5%B0%BC%E7%B3%BB%E6%95%B0/">CART树和基尼系数</a>
+    <h1 class="article-title" itemprop="name">
+      CART树和基尼系数
     </h1>
   
 
-  </div>
-  
-  <p class="article-meta">
-    <span class="article-date">
+      
+      <div class="article-meta">
+        <span class="article-date">
     <i class="icon icon-calendar-check"></i>
 	<a href="/2026/06/29/CART%E6%A0%91%E5%92%8C%E5%9F%BA%E5%B0%BC%E7%B3%BB%E6%95%B0/" class="article-date">
-	  <time datetime="2026-06-28T16:00:00.000Z" itemprop="datePublished">6月 29</time>
+	  <time datetime="2026-06-28T16:00:00.000Z" itemprop="datePublished">2026-06-29</time>
 	</a>
 </span>
-    
+        
   <span class="article-category">
     <i class="icon icon-folder"></i>
     <a class="article-category-link" href="/categories/%E6%8A%80%E6%9C%AF%E5%88%86%E4%BA%AB/">技术分享</a>
   </span>
 
-    
+        
   <span class="article-tag">
     <i class="icon icon-tags"></i>
 	<a class="article-tag-link-link" href="/tags/CART/" rel="tag">CART</a>, <a class="article-tag-link-link" href="/tags/%E5%86%B3%E7%AD%96%E6%A0%91/" rel="tag">决策树</a>, <a class="article-tag-link-link" href="/tags/%E5%89%AA%E6%9E%9D/" rel="tag">剪枝</a>, <a class="article-tag-link-link" href="/tags/%E5%9F%BA%E5%B0%BC%E7%B3%BB%E6%95%B0/" rel="tag">基尼系数</a>, <a class="article-tag-link-link" href="/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/" rel="tag">机器学习</a>
   </span>
 
 
-    <span class="post-comment"><i class="icon icon-comment"></i> <a href="/2026/06/29/CART%E6%A0%91%E5%92%8C%E5%9F%BA%E5%B0%BC%E7%B3%BB%E6%95%B0/#comments" class="article-comment-link">评论</a></span>
-    
-  </p>
-</article>
+        
 
-    
-      <article class="article article-type-post" itemscope itemtype="http://schema.org/BlogPosting">
-  <div class="article-header">
-    
+        <span class="post-comment"><i class="icon icon-comment"></i> <a href="/2026/06/29/CART%E6%A0%91%E5%92%8C%E5%9F%BA%E5%B0%BC%E7%B3%BB%E6%95%B0/#comments" class="article-comment-link">评论</a></span>
+        
+      </div>
+    </div>
+    <div class="article-entry marked-body" itemprop="articleBody">
+      
+        <h2 id="一、CART树概述"><a href="#一、CART树概述" class="headerlink" title="一、CART树概述"></a>一、CART树概述</h2><p>CART树是典型的<strong>二叉树</strong>结构，在每个节点进行分类。</p>
+<p><img src="/attachment/cart-1.webp" alt="CART树示意"></p>
+<p>在CART树之前还有很多多叉决策树。树中每个内部节点表示一个特征上的判断，每个分支代表一个判断结果的输出，每个叶子节点代表一种分类结果。</p>
+<p>CART可以实现<strong>回归和分类</strong>，在分类和回归的过程中分别使用<strong>基尼指数最小化策略</strong>和<strong>平方误差最小化策略</strong>。</p>
+<hr>
+<h2 id="二、基尼系数"><a href="#二、基尼系数" class="headerlink" title="二、基尼系数"></a>二、基尼系数</h2><h3 id="2-1-含义"><a href="#2-1-含义" class="headerlink" title="2.1 含义"></a>2.1 含义</h3><p>计算每个分类的概率的平方的总和。如节点中总共有两个分类各自占比 0.5：</p>
+<p>$$<br>Gini(D) &#x3D; 1 - (0.5^2) - (0.5^2) &#x3D; 1 - 0.5 &#x3D; 0.5<br>$$</p>
+<p><img src="/attachment/cart-2.webp" alt="基尼系数示意"></p>
+<h3 id="2-2-核心公式与物理意义"><a href="#2-2-核心公式与物理意义" class="headerlink" title="2.2 核心公式与物理意义"></a>2.2 核心公式与物理意义</h3><p>对于一个包含 K 个类别的数据集 D，设第 k 类样本在其中的占比为 $p_k$，则基尼不纯度：</p>
+<p>$$<br>Gini(D) &#x3D; 1 - \sum_{k&#x3D;1}^{K} p_k^2<br>$$</p>
+<p><strong>直观物理意义</strong>：从该数据集中<strong>随机抽取 2 个样本，它们所属类别不一致的概率</strong>。</p>
+<ul>
+<li>节点完全纯净时（所有样本同一类）：$p_1 &#x3D; 1$，其余为 0，$Gini(D) &#x3D; 0$</li>
+<li>节点完全混杂时（二分类各占 0.5）：$Gini(D) &#x3D; 1 - (0.5^2 + 0.5^2) &#x3D; 0.5$（最大值）</li>
+</ul>
+<p>基尼不纯度越小，代表该节点纯度越高，这正是决策树分裂时希望达成的目标。</p>
+<p><img src="/attachment/cart-3.webp" alt="基尼不纯度求导"></p>
+<p>把该节点每个分类的基尼指数加权平均，分类的目标就是为了让这个集合最小。</p>
+<blockquote>
+<ul>
+<li>信息增益（ID3）、信息增益率（C4.5）值<strong>越大</strong>，优先选择该特征</li>
+<li>基尼指数值<strong>越小</strong>（CART），优先选择该特征</li>
+</ul>
+</blockquote>
+<p><img src="/attachment/cart-4.webp" alt="特征选择对比"></p>
+<p><img src="/attachment/cart-5.webp" alt="特征选择对比2"></p>
+<p><img src="/attachment/cart-6.webp" alt="CART算法示意"></p>
+<p>CART算法确保 Gini 指数最低，也就是分类后同类的概率最大。</p>
+<hr>
+<h2 id="三、CART回归树"><a href="#三、CART回归树" class="headerlink" title="三、CART回归树"></a>三、CART回归树</h2><p>CART 回归树和 CART 分类树的不同之处：</p>
+<ol>
+<li>分类树预测输出的是<strong>离散值</strong>，回归树预测输出的是<strong>连续值</strong></li>
+<li>分类树使用<strong>基尼指数</strong>作为划分依据，回归树使用<strong>平方损失</strong></li>
+<li>分类树用叶子节点里出现更多次数的类别作为预测，回归树则采用叶子节点里<strong>均值</strong>作为预测输出</li>
+</ol>
+<p><img src="/attachment/cart-7.webp" alt="回归树示意1"></p>
+<p><img src="/attachment/cart-8.webp" alt="回归树示意2"></p>
+<p>让分类后两边更抱团——两边的平方误差直接算方差再加和，方差和越小越说明两边数据集中。</p>
+<hr>
+<h2 id="四、剪枝"><a href="#四、剪枝" class="headerlink" title="四、剪枝"></a>四、剪枝</h2><p>剪枝是决策树对付<strong>过拟合</strong>的主要手段。决策树分支过多时会把训练集的噪声也学进去导致过拟合，通过主动去掉一些分支来降低风险。</p>
+<p><img src="/attachment/cart-9.webp" alt="剪枝示意"></p>
+<h3 id="4-1-预剪枝-vs-后剪枝"><a href="#4-1-预剪枝-vs-后剪枝" class="headerlink" title="4.1 预剪枝 vs 后剪枝"></a>4.1 预剪枝 vs 后剪枝</h3><table>
+<thead>
+<tr>
+<th>维度</th>
+<th>预剪枝</th>
+<th>后剪枝（CCP）</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>执行时机</td>
+<td>树生长过程中，边生长边停止</td>
+<td>树完全生长后，自底向上砍分支</td>
+</tr>
+<tr>
+<td>核心逻辑</td>
+<td>贪心判断单次分裂收益</td>
+<td>全局评估子树性价比</td>
+</tr>
+<tr>
+<td>计算成本</td>
+<td>低，训练同步完成</td>
+<td>高，需先生长完整树+交叉验证</td>
+</tr>
+<tr>
+<td>泛化效果</td>
+<td>一般，容易欠拟合</td>
+<td>更好，结构更合理</td>
+</tr>
+<tr>
+<td>短视风险</td>
+<td>高，可能错过后续高收益分裂</td>
+<td>无，基于完整树评估</td>
+</tr>
+<tr>
+<td>工业使用频率</td>
+<td>极高（集成学习标配）</td>
+<td>低，仅单棵树追求极致泛化时</td>
+</tr>
+</tbody></table>
+<h3 id="4-2-预剪枝常用停止条件"><a href="#4-2-预剪枝常用停止条件" class="headerlink" title="4.2 预剪枝常用停止条件"></a>4.2 预剪枝常用停止条件</h3><table>
+<thead>
+<tr>
+<th>停止条件</th>
+<th>含义</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>max_depth</code></td>
+<td>树的深度达到阈值就停止分裂</td>
+</tr>
+<tr>
+<td><code>min_samples_split</code></td>
+<td>当前节点样本数小于阈值就不再分裂</td>
+</tr>
+<tr>
+<td><code>min_samples_leaf</code></td>
+<td>分裂后子节点样本数小于阈值就放弃</td>
+</tr>
+<tr>
+<td><code>min_impurity_decrease</code></td>
+<td>分裂带来的增益小于阈值就不分裂</td>
+</tr>
+<tr>
+<td><code>max_leaf_nodes</code></td>
+<td>叶子总数达到上限就停止生长</td>
+</tr>
+</tbody></table>
+<h3 id="4-3-CART-标准方案：代价复杂度剪枝（CCP）"><a href="#4-3-CART-标准方案：代价复杂度剪枝（CCP）" class="headerlink" title="4.3 CART 标准方案：代价复杂度剪枝（CCP）"></a>4.3 CART 标准方案：代价复杂度剪枝（CCP）</h3><p>核心公式：</p>
+<p>$$<br>C_\alpha(T) &#x3D; C(T) + \alpha \cdot |T|<br>$$</p>
+<ul>
+<li>$C(T)$：整棵树的预测误差（分类用误分类数，回归用 SSE）</li>
+<li>$|T|$：树的叶子节点数量</li>
+<li>$\alpha$：正则化惩罚系数。$\alpha &#x3D; 0$ 为完整大树，$\alpha$ 越大树越简单</li>
+</ul>
+<p><strong>两步法</strong>：</p>
+<ol>
+<li><p><strong>自底向上生成子树序列</strong>：从完整大树开始，每轮选择临界α最小的内部节点剪掉，得到一系列子树 $T_0, T_1, …, T_n$</p>
+</li>
+<li><p><strong>交叉验证选择最优子树</strong>：用验证集测试每棵子树，选择验证误差最小的，若多个相近则选叶子更少的</p>
+</li>
+</ol>
+<h3 id="4-4-工业落地建议"><a href="#4-4-工业落地建议" class="headerlink" title="4.4 工业落地建议"></a>4.4 工业落地建议</h3><ul>
+<li><strong>集成学习场景</strong>：几乎只用<strong>预剪枝</strong>，集成本身已通过多模型平均抑制过拟合</li>
+<li><strong>单棵CART树</strong>：追求最优泛化用<strong>CCP后剪枝</strong>，sklearn 通过 <code>ccp_alpha</code> 参数开启</li>
+<li><strong>调参优先级</strong>：先调预剪枝参数快速收敛，如果单棵树还有过拟合空间再叠加 CCP</li>
+</ul>
+
+      
+    </div>
+    <div class="article-footer">
+    </div>
+  </article>
   
-    <h1 itemprop="name">
-      <a class="article-title" href="/2026/06/28/hello-world/">Hello World</a>
-    </h1>
+    
+  <section id="comments">
+  	
+      <div id="utterances-container"></div>
+    
+  </section>
+
+
   
+</div>
 
-  </div>
+  <nav class="bar bar-footer clearfix" data-stick-bottom>
+  <div class="bar-inner">
   
-  <p class="article-meta">
-    <span class="article-date">
-    <i class="icon icon-calendar-check"></i>
-	<a href="/2026/06/28/hello-world/" class="article-date">
-	  <time datetime="2026-06-27T16:00:00.000Z" itemprop="datePublished">6月 28</time>
-	</a>
-</span>
+  <ul class="pager pull-left">
     
-  <span class="article-category">
-    <i class="icon icon-folder"></i>
-    <a class="article-category-link" href="/categories/%E6%8A%80%E6%9C%AF%E5%88%86%E4%BA%AB/">技术分享</a>
-  </span>
-
     
-
-    <span class="post-comment"><i class="icon icon-comment"></i> <a href="/2026/06/28/hello-world/#comments" class="article-comment-link">评论</a></span>
+    <li class="next">
+      <a href="/2026/06/28/hello-world/" title="Hello World"><span>下一篇&nbsp;&nbsp;</span><i class="icon icon-angle-right" aria-hidden="true"></i></a>
+    </li>
     
-  </p>
-</article>
-
     
-      <article class="article article-type-post" itemscope itemtype="http://schema.org/BlogPosting">
-  <div class="article-header">
-    
+  </ul>
   
-    <h1 itemprop="name">
-      <a class="article-title" href="/2026/06/28/%E6%A2%AF%E5%BA%A6%E4%B8%8B%E9%99%8D%E4%B8%93%E9%A2%98/">梯度下降专题</a>
-    </h1>
   
-
-  </div>
   
-  <p class="article-meta">
-    <span class="article-date">
-    <i class="icon icon-calendar-check"></i>
-	<a href="/2026/06/28/%E6%A2%AF%E5%BA%A6%E4%B8%8B%E9%99%8D%E4%B8%93%E9%A2%98/" class="article-date">
-	  <time datetime="2026-06-27T16:00:00.000Z" itemprop="datePublished">6月 28</time>
-	</a>
-</span>
+  <div class="bar-right">
     
-  <span class="article-category">
-    <i class="icon icon-folder"></i>
-    <a class="article-category-link" href="/categories/%E6%8A%80%E6%9C%AF%E5%88%86%E4%BA%AB/">技术分享</a>
-  </span>
-
-    
-  <span class="article-tag">
-    <i class="icon icon-tags"></i>
-	<a class="article-tag-link-link" href="/tags/%E4%BC%98%E5%8C%96%E7%AE%97%E6%B3%95/" rel="tag">优化算法</a>, <a class="article-tag-link-link" href="/tags/%E6%8D%9F%E5%A4%B1%E5%87%BD%E6%95%B0/" rel="tag">损失函数</a>, <a class="article-tag-link-link" href="/tags/%E6%A2%AF%E5%BA%A6%E4%B8%8B%E9%99%8D/" rel="tag">梯度下降</a>, <a class="article-tag-link-link" href="/tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/" rel="tag">深度学习</a>
-  </span>
-
-
-    <span class="post-comment"><i class="icon icon-comment"></i> <a href="/2026/06/28/%E6%A2%AF%E5%BA%A6%E4%B8%8B%E9%99%8D%E4%B8%93%E9%A2%98/#comments" class="article-comment-link">评论</a></span>
-    
-  </p>
-</article>
-
-    
-      <article class="article article-type-post" itemscope itemtype="http://schema.org/BlogPosting">
-  <div class="article-header">
-    
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2026/06/28/agent%E5%BC%80%E5%8F%91%E6%A0%B8%E5%BF%83/">Agent 开发不是简单的模型调用与 Prompt 编写</a>
-    </h1>
-  
-
-  </div>
-  
-  <p class="article-meta">
-    <span class="article-date">
-    <i class="icon icon-calendar-check"></i>
-	<a href="/2026/06/28/agent%E5%BC%80%E5%8F%91%E6%A0%B8%E5%BF%83/" class="article-date">
-	  <time datetime="2026-06-27T16:00:00.000Z" itemprop="datePublished">6月 28</time>
-	</a>
-</span>
-    
-  <span class="article-category">
-    <i class="icon icon-folder"></i>
-    <a class="article-category-link" href="/categories/%E6%8A%80%E6%9C%AF%E5%88%86%E4%BA%AB/">技术分享</a>
-  </span>
-
-    
-  <span class="article-tag">
-    <i class="icon icon-tags"></i>
-	<a class="article-tag-link-link" href="/tags/AI-%E6%9E%B6%E6%9E%84/" rel="tag">AI 架构</a>, <a class="article-tag-link-link" href="/tags/Agent/" rel="tag">Agent</a>, <a class="article-tag-link-link" href="/tags/%E4%B8%8A%E4%B8%8B%E6%96%87%E5%A1%AB%E5%85%85/" rel="tag">上下文填充</a>, <a class="article-tag-link-link" href="/tags/%E5%B7%A5%E4%BD%9C%E6%B5%81/" rel="tag">工作流</a>, <a class="article-tag-link-link" href="/tags/%E6%A8%A1%E5%9E%8B%E8%B0%83%E4%BC%98/" rel="tag">模型调优</a>
-  </span>
-
-
-    <span class="post-comment"><i class="icon icon-comment"></i> <a href="/2026/06/28/agent%E5%BC%80%E5%8F%91%E6%A0%B8%E5%BF%83/#comments" class="article-comment-link">评论</a></span>
-    
-  </p>
-</article>
-
-    
-      <article class="article article-type-post" itemscope itemtype="http://schema.org/BlogPosting">
-  <div class="article-header">
-    
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2026/06/28/hexo-github-pages-%E9%81%BF%E5%9D%91%E6%8C%87%E5%8D%97/">Hexo + GitHub Pages 博客搭建避坑指南</a>
-    </h1>
-  
-
-  </div>
-  
-  <p class="article-meta">
-    <span class="article-date">
-    <i class="icon icon-calendar-check"></i>
-	<a href="/2026/06/28/hexo-github-pages-%E9%81%BF%E5%9D%91%E6%8C%87%E5%8D%97/" class="article-date">
-	  <time datetime="2026-06-27T16:00:00.000Z" itemprop="datePublished">6月 28</time>
-	</a>
-</span>
-    
-  <span class="article-category">
-    <i class="icon icon-folder"></i>
-    <a class="article-category-link" href="/categories/%E6%8A%80%E6%9C%AF%E5%88%86%E4%BA%AB/">技术分享</a>
-  </span>
-
-    
-  <span class="article-tag">
-    <i class="icon icon-tags"></i>
-	<a class="article-tag-link-link" href="/tags/GitHub-Pages/" rel="tag">GitHub Pages</a>, <a class="article-tag-link-link" href="/tags/Hexo/" rel="tag">Hexo</a>, <a class="article-tag-link-link" href="/tags/%E5%8D%9A%E5%AE%A2/" rel="tag">博客</a>, <a class="article-tag-link-link" href="/tags/%E8%B8%A9%E5%9D%91%E8%AE%B0%E5%BD%95/" rel="tag">踩坑记录</a>
-  </span>
-
-
-    <span class="post-comment"><i class="icon icon-comment"></i> <a href="/2026/06/28/hexo-github-pages-%E9%81%BF%E5%9D%91%E6%8C%87%E5%8D%97/#comments" class="article-comment-link">评论</a></span>
-    
-  </p>
-</article>
-
-    
-      <article class="article article-type-post" itemscope itemtype="http://schema.org/BlogPosting">
-  <div class="article-header">
-    
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2026/06/28/claude-code-deepseek-%E5%B0%8F%E7%99%BD%E5%85%A5%E9%97%A8/">Windows 从零搭建 Claude Code + DeepSeek 完整指南</a>
-    </h1>
-  
-
-  </div>
-  
-  <p class="article-meta">
-    <span class="article-date">
-    <i class="icon icon-calendar-check"></i>
-	<a href="/2026/06/28/claude-code-deepseek-%E5%B0%8F%E7%99%BD%E5%85%A5%E9%97%A8/" class="article-date">
-	  <time datetime="2026-06-27T16:00:00.000Z" itemprop="datePublished">6月 28</time>
-	</a>
-</span>
-    
-  <span class="article-category">
-    <i class="icon icon-folder"></i>
-    <a class="article-category-link" href="/categories/%E6%8A%80%E6%9C%AF%E5%88%86%E4%BA%AB/">技术分享</a>
-  </span>
-
-    
-  <span class="article-tag">
-    <i class="icon icon-tags"></i>
-	<a class="article-tag-link-link" href="/tags/Claude-Code/" rel="tag">Claude Code</a>, <a class="article-tag-link-link" href="/tags/DeepSeek/" rel="tag">DeepSeek</a>, <a class="article-tag-link-link" href="/tags/Git/" rel="tag">Git</a>, <a class="article-tag-link-link" href="/tags/Node-js/" rel="tag">Node.js</a>, <a class="article-tag-link-link" href="/tags/%E5%B0%8F%E7%99%BD%E5%85%A5%E9%97%A8/" rel="tag">小白入门</a>
-  </span>
-
-
-    <span class="post-comment"><i class="icon icon-comment"></i> <a href="/2026/06/28/claude-code-deepseek-%E5%B0%8F%E7%99%BD%E5%85%A5%E9%97%A8/#comments" class="article-comment-link">评论</a></span>
-    
-  </p>
-</article>
-
+    <div class="share-component" data-sites="weibo,qq,wechat,facebook,twitter" data-mobile-sites="weibo,qq,qzone"></div>
     
   </div>
+  </div>
+</nav>
+  
 
-   
+
 </main>
 
   <footer class="footer" itemscope itemtype="http://schema.org/WPFooter">
@@ -593,6 +601,19 @@ window.jQuery || document.write('<script src="js/jquery.min.js"><\/script>')
 
 
    
+
+
+
+
+   
+    
+  <script src="https://utteranc.es/client.js"
+    repo="sukurucn/sukurucn.github.io"
+    issue-term="pathname"
+    theme="github-light"
+    crossorigin="anonymous"
+    async>
+  </script>
 
 
 

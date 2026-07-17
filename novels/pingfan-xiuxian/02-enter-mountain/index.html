@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang=zh>
+<head>
+  <meta charset="utf-8">
+  
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+  <meta name="renderer" content="webkit">
+  <meta http-equiv="Cache-Control" content="no-transform" />
+  <meta http-equiv="Cache-Control" content="no-siteapp" />
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="format-detection" content="telephone=no,email=no,adress=no">
+  <!-- Color theme for statusbar -->
+  <meta name="theme-color" content="#000000" />
+  <!-- 强制页面在当前窗口以独立页面显示,防止别人在框架里调用页面 -->
+  <meta http-equiv="window-target" content="_top" />
+  
+  
+  <title>第二章　进山 | 厚实表皮</title>
+  <meta name="description" content="《平凡修仙》第二章：进山。">
+<meta property="og:type" content="website">
+<meta property="og:title" content="第二章　进山">
+<meta property="og:url" content="https://cjay.site/novels/pingfan-xiuxian/02-enter-mountain/index.html">
+<meta property="og:site_name" content="厚实表皮">
+<meta property="og:description" content="《平凡修仙》第二章：进山。">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2026-07-16T16:00:00.000Z">
+<meta property="article:modified_time" content="2026-07-17T04:10:50.343Z">
+<meta property="article:author" content="sukuru">
+<meta property="article:tag" content="Agent 开发">
+<meta property="article:tag" content="LLM">
+<meta property="article:tag" content="机器学习">
+<meta property="article:tag" content="个人小说">
+<meta property="article:tag" content="平凡修仙">
+<meta name="twitter:card" content="summary">
+  <!-- Canonical links -->
+  <link rel="canonical" href="https://cjay.site/novels/pingfan-xiuxian/02-enter-mountain/index.html">
+  
+    <link rel="alternate" href="/atom.xml" title="厚实表皮" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png" type="image/x-icon">
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+    
+<link rel="stylesheet" href="/css/novel.css">
+
+  
+  
+  
+  
+  
+<meta name="generator" content="Hexo 7.3.0"></head>
+
+
+<body class="main-center page-layout-chapter no-sidebar" itemscope itemtype="http://schema.org/WebPage">
+  <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+  <div class="slimContent">
+    <div class="navbar-header">
+      
+      
+      <div class="profile-block text-center">
+        <a id="avatar" href="https://github.com/sukurucn" target="_blank">
+          <img class="img-circle img-rotate" src="/images/avatar.jpg" width="200" height="200">
+        </a>
+        <h2 id="name" class="hidden-xs hidden-sm">sukuru</h2>
+        <h3 id="title" class="hidden-xs hidden-sm hidden-md">上下文填充<br>模型调优<br>工作流搭建<br>安全合规机制</h3>
+        <small id="location" class="text-muted hidden-xs hidden-sm"><i class="icon icon-map-marker"></i> Hefei, China</small>
+      </div>
+      
+      <div class="search" id="search-form-wrap">
+
+    <form class="search-form sidebar-form">
+        <div class="input-group">
+            <input type="text" class="search-form-input form-control" placeholder="搜索" />
+            <span class="input-group-btn">
+                <button type="submit" class="search-form-submit btn btn-flat" onclick="return false;"><i class="icon icon-search"></i></button>
+            </span>
+        </div>
+    </form>
+    <div class="ins-search">
+  <div class="ins-search-mask"></div>
+  <div class="ins-search-container">
+    <div class="ins-input-wrapper">
+      <input type="text" class="ins-search-input" placeholder="想要查找什么..." x-webkit-speech />
+      <button type="button" class="close ins-close ins-selectable" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+    </div>
+    <div class="ins-section-wrapper">
+      <div class="ins-section-container"></div>
+    </div>
+  </div>
+</div>
+
+
+</div>
+      <button class="navbar-toggle collapsed" type="button" data-toggle="collapse" data-target="#main-navbar" aria-controls="main-navbar" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+    </div>
+    <nav id="main-navbar" class="collapse navbar-collapse" itemscope itemtype="http://schema.org/SiteNavigationElement" role="navigation">
+      <ul class="nav navbar-nav main-nav ">
+        
+        
+        <li class="menu-item menu-item-home">
+          <a href="/.">
+            
+            <i class="icon icon-home-fill"></i>
+            
+            <span class="menu-title">首页</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives">
+            
+            <i class="icon icon-archives-fill"></i>
+            
+            <span class="menu-title">归档</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories">
+            
+            <i class="icon icon-folder"></i>
+            
+            <span class="menu-title">分类</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-novel">
+          <a href="/novels">
+            
+            <i class="icon icon-book-fill"></i>
+            
+            <span class="menu-title">小说</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-repository">
+          <a target="_blank" rel="noopener" href="https://github.com/sukurucn?tab=repositories">
+            
+            <i class="icon icon-project"></i>
+            
+            <span class="menu-title">项目</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-books">
+          <a href="/books">
+            
+            <i class="icon icon-book-fill"></i>
+            
+            <span class="menu-title">书单</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-links">
+          <a href="/links">
+            
+            <i class="icon icon-friendship"></i>
+            
+            <span class="menu-title">友链</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about">
+            
+            <i class="icon icon-cup-fill"></i>
+            
+            <span class="menu-title">关于</span>
+          </a>
+        </li>
+        
+      </ul>
+      
+	
+    <ul class="social-links">
+    	
+        <li><a href="https://github.com/sukurucn" target="_blank" title="Github" data-toggle=tooltip data-placement=top><i class="icon icon-github"></i></a></li>
+        
+        <li><a href="/" target="_blank" title="Home" data-toggle=tooltip data-placement=top><i class="icon icon-home"></i></a></li>
+        
+        <li><a href="/images/qq-qrcode.jpg" target="_blank" title="Qq" data-toggle=tooltip data-placement=top><i class="icon icon-qq"></i></a></li>
+        
+        <li><a href="/atom.xml" target="_blank" title="Rss" data-toggle=tooltip data-placement=top><i class="icon icon-rss"></i></a></li>
+        
+    </ul>
+
+    </nav>
+  </div>
+</header>
+
+  
+  <div class="reading-progress" aria-hidden="true"><span id="reading-progress-bar"></span></div>
+<main class="main novel-reader-main" role="main">
+  <nav class="reader-toolbar" aria-label="阅读设置">
+    <a class="reader-back" href="/novels/pingfan-xiuxian/">← 平凡修仙</a>
+    <div class="reader-controls">
+      <button type="button" data-reader-size="-1" aria-label="减小字号">字−</button>
+      <button type="button" data-reader-size="1" aria-label="增大字号">字＋</button>
+      <button type="button" id="reader-theme-toggle" aria-label="切换阅读主题">夜间</button>
+    </div>
+  </nav>
+
+  <article class="novel-chapter" itemscope itemtype="https://schema.org/Chapter">
+    <header class="chapter-header">
+      <p class="novel-kicker">第二章 · 平凡修仙</p>
+      <h1 itemprop="headline">进山</h1>
+      <p class="chapter-lead">外面的一切都比家里有趣。除了新奇，我一路上最明显的情绪是惶恐。</p>
+    </header>
+    <div class="chapter-body" id="chapter-body" itemprop="text">
+      <p>离开家的那一天，母亲替我收拾了一个不大的包袱。</p>
+<p>里面有两身换洗的衣服，一双新纳的布鞋，还有几张烙得很干的饼。她怕饼在路上发霉，特意多烙了一会儿，边缘有些焦。我咬了一口，觉得太硬，便又放了回去。母亲看见了，说现在不吃也好，等饿了自然就觉得香了。</p>
+<p>她后来还塞进一小包针线。我一次也没有用过，甚至不知道她为什么觉得我会用。大概父母替孩子准备东西时，想的从来不是孩子现在会不会，而是万一需要的时候，手边最好能够有。</p>
+<p>父亲帮我把包袱重新系紧。临走以前，他和母亲都嘱咐了我许多事情。那时我不停地点头，表现得像是每一句都听了进去，实际上我的心思早已跑到了村外。我在看七叔肩上的担子，也在猜出了村以后会先经过哪里。</p>
+<p>现在想来，我很后悔没有认真听父母临走时的嘱咐。</p>
+<p>事实上，直到今天我也不知道他们当时究竟嘱咐了什么。也许是让我按时吃饭，也许是不要和别人争执，又或者只是叫我在山里多穿一件衣服。后来我当然可以按照自己对父母的了解，替他们补出一些合情合理的话，可那些话终究是我想出来的，不是他们那天真正说过的。</p>
+<p>我只记得自己点了很多次头。</p>
+<p>我跟着七叔离开村子时，没有想家，也没有什么留念感。</p>
+<p>当时的我对“离家”没有概念。我只知道自己要跟七叔去另一个地方，至于一年究竟有多长，离开以后又意味着什么，我都没有认真想过。</p>
+<p>路边的草上还有露水，七叔走得很快，我背后的包袱随着脚步一下下撞在腰上。出了村以后，路旁的树、迎面经过的人，甚至泥地上从没见过的车辙都比家里有趣。我忙着看这些，根本没有多余的心思留给离别。</p>
+<p>除了新奇，我一路上最明显的情绪是惶恐。</p>
+<p>我怕自己说错话，怕把该叫叔的人叫成伯，怕别人问到一件人人都知道的事情时，只有我不知道。我也怕吃饭太快显得没有规矩，走得太慢又让人觉得娇气。总之，任何小事到了我心里，都像是在证明我究竟是一个怎样的人。</p>
+<p>这种谨慎并没有使我表现得更加得体，反而让我露了更多怯。</p>
+<p>走了不到半个时辰，七叔把水囊递给我，问我要不要喝水。</p>
+<p>我其实已经有些渴了，却觉得才走这么一点路便喝水，会让他看轻，于是说不渴。</p>
+<p>又走了半个时辰，我越来越渴，只好主动问他要水。七叔把水囊递过来，我接过以后，担心他记得我先前说过的话，便解释道：“刚才确实不渴，是后来才渴的。”</p>
+<p>七叔看了我一眼。</p>
+<p>“喝吧，别洒了。”</p>
+<p>他大概根本没有想过我先前渴不渴。我却觉得自己的解释十分必要，仿佛不解释清楚，便会在他心里留下一个撒谎的印象。结果我喝得太急，被水呛了一下，咳了半天，最后还是洒湿了衣襟。</p>
+<p>七叔停下来等我咳完，没有笑，也没有责备，只说了一句慢点。</p>
+<p>当时的我觉得十分难堪。现在想来，一个十二岁的孩子走累了、口渴了，又或者在陌生人面前显得笨拙，原本都是再正常不过的事情。没有人会认真记住这些，更不会因此判断他的一生。可那时的我不知道。或者说，即使有人这样告诉我，我也未必相信。</p>
+<p>我总觉得别人在看我。</p>
+<p>其实别人多半只是在赶路。</p>
+<p>从村里到药园要走五六天。前两日的路还算平坦，偶尔能遇见拉货的牛车。车轮从泥地上碾过去，留下两道很深的沟。我会猜车上盖着的麻布下面装了什么，又担心问得太多显得没见识，只能趁车走远以后再问七叔。</p>
+<p>七叔并不是一个适合讲故事的人。</p>
+<p>我问那辆车要去哪里，他说不知道；我问远处的山叫什么，他说就是山；我问药园里是不是真的有能让人活上几百岁的仙药，他说自己没吃过。</p>
+<p>他的回答常常让我失望，但没有让我失去兴趣。即使不知道名字，山也是我以前没有见过的山；即使不清楚去处，那辆牛车也是从我不知道的地方来，又要去我不知道的地方。</p>
+<p>世界第一次在我面前显得很大。</p>
+<p>这种新奇压过了其他所有情绪。我们借宿时，我更在意那户人家为什么把玉米挂满整面墙；露宿时，我又一直看着树叶间的星星，猜测哪一颗下面会有另一个村子。</p>
+<p>如果一定要给这种不想家找一个更深的原因，反而是在替当时的我编造心情。原因其实很简单：外面的一切都比家里有趣。十二岁的我顾不上怀念已经习惯的东西，只想知道下一段路上还有什么。</p>
+<p>第三日以后，路渐渐难走起来。</p>
+<p>山路有些地方很窄，旁边便是长满灌木的斜坡。七叔说不能只盯着脚下，要提前看清前面的路。我照他说的抬头，没走几步便踩到一块松动的石头，差点摔倒。之后我又只敢盯着脚下。</p>
+<p>七叔回头看见，说：“算了，你慢点走。”</p>
+<p>我听出他已经不再期待我立刻学会，心里反而轻松了一些。</p>
+<p>抵达药园是在第五日下午。</p>
+<p>那时我已经走得两腿发酸，肩膀也被包袱勒出两道红印。可真正看见药园时，新奇感并没有因为疲惫减少。</p>
+<p>药园建在半山腰，远看与村里的梯田有些相似，只是每一块田都被分得更小。有些药田搭着遮阳的竹棚，有些蒙着细网，还有一些四周挖了浅沟，沟里的水缓慢流动。田间立着许多竹牌，上面写着药材的名字、种下的日子和负责照看的人。</p>
+<p>我认识竹牌上的字，却不认识字旁边的草。</p>
+<p>有一种草的叶背是银白色，风吹过去时，整片药田便一阵明一阵暗。另一种只有手指高，茎却是红的，贴近以后能闻到一股很苦的气味。我原以为仙药多少会发一点光，或者在有人靠近时自己摇动，结果它们大都安静地长在土里，与寻常庄稼并没有根本上的不同。</p>
+<p>可我仍旧觉得它们奇怪。</p>
+<p>负责药园的是一个四十多岁的管事。他先问了我的名字和年纪，又问我认不认字。七叔替我回答，说我读过几年私塾。管事便随手指了一块竹牌，让我把上面的字念出来。</p>
+<p>我念得很慢，中间有一个字不认识。</p>
+<p>我原本想含混过去，可管事一直等着，只好承认自己不会。他没有取笑我，只告诉我那个字怎么读，又让我重新念了一遍。</p>
+<p>之后他问：“家里种田？”</p>
+<p>我说是。</p>
+<p>“会不会种东西？”</p>
+<p>我迟疑了一下，说：“会一点。”</p>
+<p>这句话不能说完全是假的。我见过父母种田，知道什么时候播种，什么时候除草，也能分清稻子和稗草。可若真让我独自种出什么，我大概是什么都不会的。</p>
+<p>我没有解释得这么清楚，因为我担心一旦解释，他们便觉得我不适合留下。先前一路上，我总害怕别人误会我；真正关系到那三两银子时，我又觉得有些误会不妨暂时保留。</p>
+<p>幸好管事没有继续追问。</p>
+<p>药园愿意招收我这样年纪的孩子，一方面是因为这里的活不需要特别强壮的身体，另一方面也是因为年纪小的人学东西快，更容易记住每种药材那些细碎的禁忌。我读过几年私塾，能够看懂竹牌，也能记一些简单的账。农户出身又使我熟悉土地和节气，至少不会嫌泥脏。</p>
+<p>这些都是后来管事告诉我的理由。</p>
+<p>再后来我还明白了另一些他没有说的理由：年纪小的人要的工钱少，也更听话。它们未必比前面的理由更加真实，大概只是同时存在。人们雇用一个人，往往既看中他的长处，也看中他便宜。</p>
+<p>说是药园，最后其实也不过是种植。</p>
+<p>每天要做的事情无非浇水、除草、松土、捉虫，把成熟的药材挖出来，再将空出的地方重新整理好。只是药材比庄稼娇气得多。有些不能在正午浇水，有些叶子不能沾水；同一块田里，左边需要晒太阳，右边却要及时盖上防光布。就连除草也不能太快，因为有些刚发芽的药材看起来比杂草还像杂草。</p>
+<p>这里没有哪一件事听起来困难，合在一起却十分琐碎。</p>
+<p>琐碎的事情最容易让人放松警惕，也最容易出错。管事带我走过药田时说了许多规矩，我一路点头，努力表现得自己已经记住。等他问我第二块田应该什么时候浇水，我脑子里却只剩下第一块田不能在什么时候浇水。</p>
+<p>他叹了口气，又说了一遍。</p>
+<p>这一次我没有解释自己为什么忘记，只是跟着重新记。</p>
+<p>傍晚，管事把我带到一间木屋。屋里摆着一张窄床、一只木箱和一张有些歪的桌子。床上的被褥有股晒过以后留下的干燥气味。它们都算不上好，但每一样东西都有明确的用途，也明确地属于我接下来一年的生活。</p>
+<p>我把母亲准备的衣服放进木箱，又将那包针线压在最下面。桌上有一盏油灯，墙边放着第二天干活要用的竹篓。</p>
+<p>屋里的每一样东西都让我觉得新鲜。我打开油灯看里面还剩多少油，又把竹篓提起来试了试重量，连那张有些歪的桌子也被我推了两下，想看它究竟是哪条腿短。</p>
+<p>躺下以后，我一直在想那片叶背银白的草叫什么，管事没有让我靠近的几块药田里又种了什么，还有药园里是不是真的藏着一种吃下去便能让人活上几百岁的药。</p>
+<p>我对即将开始的生活充满兴趣。</p>
+<p>十二岁的人来到一个全新的地方，最先看到的通常不是辛苦，而是新奇。至于天不亮便要起身，做错事情也不会一直有人原谅，那三两银子并没有最初听起来那么好赚，都是后来才慢慢明白的。</p>
+<p>药园确实不是一处轻松的地方。</p>
+<p>可我很感谢这份差事。</p>
+<p>若它轻松、体面，人人都能做好，自然轮不到我。正因为它偏远、琐碎，又需要忍受一些辛苦，我这样只有几年私塾经历、家里也没有什么关系的人，才有机会留下。</p>
+<p>这并不是我后来才想出来安慰自己的话。最初的新奇过去以后，每天要在什么时候起床，要去哪里领工具，要给哪几块田浇水，做满一年能够得到多少银子，这些清楚而固定的事情，确实让我觉得安心。</p>
+<p>我依旧害怕做错，也依旧害怕别人看出我什么都不会。</p>
+<p>但在一个所有事情都有规矩的地方，害怕似乎也有了边界。</p>
+<p>这份差事并不轻松。</p>
+<p>不轻松，才轮得到我。</p>
+<p>而这对当时的我而言，反而是一种稳定。</p>
+
+    </div>
+  </article>
+
+  <nav class="chapter-navigation" aria-label="章节导航">
+    
+      <a class="chapter-nav-prev" href="/novels/pingfan-xiuxian/01-three-taels/"><span>上一篇</span><strong>第一章　三两银子</strong></a>
+    
+    
+      <a class="chapter-nav-next" href="/novels/pingfan-xiuxian/"><span>回到</span><strong>章节目录</strong></a>
+    
+  </nav>
+</main>
+
+  <footer class="footer" itemscope itemtype="http://schema.org/WPFooter">
+	
+	
+    <ul class="social-links">
+    	
+        <li><a href="https://github.com/sukurucn" target="_blank" title="Github" data-toggle=tooltip data-placement=top><i class="icon icon-github"></i></a></li>
+        
+        <li><a href="/" target="_blank" title="Home" data-toggle=tooltip data-placement=top><i class="icon icon-home"></i></a></li>
+        
+        <li><a href="/images/qq-qrcode.jpg" target="_blank" title="Qq" data-toggle=tooltip data-placement=top><i class="icon icon-qq"></i></a></li>
+        
+        <li><a href="/atom.xml" target="_blank" title="Rss" data-toggle=tooltip data-placement=top><i class="icon icon-rss"></i></a></li>
+        
+    </ul>
+
+    <div class="copyright">
+    	
+        <div class="publishby">
+        	Theme by <a href="https://github.com/cofess" target="_blank"> cofess </a>base on <a href="https://github.com/cofess/hexo-theme-pure" target="_blank">pure</a>.
+        </div>
+    </div>
+</footer>
+  <script src="//cdn.jsdelivr.net/npm/jquery@1.12.4/dist/jquery.min.js"></script>
+<script>
+window.jQuery || document.write('<script src="js/jquery.min.js"><\/script>')
+</script>
+
+<script src="/js/plugin.min.js"></script>
+
+
+<script src="/js/application.js"></script>
+
+
+   
+<script src="/js/novel.js"></script>
+
+
+
+    <script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: '文章',
+            PAGES: '页面',
+            CATEGORIES: '分类',
+            TAGS: '标签',
+            UNTITLED: '(未命名)',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+
+<script src="/js/insight.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+<script>
+  MathJax = {
+    tex: { inlineMath: [['$', '$'], ['\\(', '\\)']] },
+    svg: { fontCache: 'global' }
+  };
+</script>
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang=zh>
+<head>
+  <meta charset="utf-8">
+  
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+  <meta name="renderer" content="webkit">
+  <meta http-equiv="Cache-Control" content="no-transform" />
+  <meta http-equiv="Cache-Control" content="no-siteapp" />
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="format-detection" content="telephone=no,email=no,adress=no">
+  <!-- Color theme for statusbar -->
+  <meta name="theme-color" content="#000000" />
+  <!-- 强制页面在当前窗口以独立页面显示,防止别人在框架里调用页面 -->
+  <meta http-equiv="window-target" content="_top" />
+  
+  
+  <title>第三章　逐渐上手 | 厚实表皮</title>
+  <meta name="description" content="《平凡修仙》第三章：逐渐上手。">
+<meta property="og:type" content="website">
+<meta property="og:title" content="第三章　逐渐上手">
+<meta property="og:url" content="https://cjay.site/novels/pingfan-xiuxian/03-getting-used/index.html">
+<meta property="og:site_name" content="厚实表皮">
+<meta property="og:description" content="《平凡修仙》第三章：逐渐上手。">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2026-07-17T16:00:00.000Z">
+<meta property="article:modified_time" content="2026-07-18T08:06:06.626Z">
+<meta property="article:author" content="sukuru">
+<meta property="article:tag" content="Agent 开发">
+<meta property="article:tag" content="LLM">
+<meta property="article:tag" content="机器学习">
+<meta property="article:tag" content="个人小说">
+<meta property="article:tag" content="平凡修仙">
+<meta name="twitter:card" content="summary">
+  <!-- Canonical links -->
+  <link rel="canonical" href="https://cjay.site/novels/pingfan-xiuxian/03-getting-used/index.html">
+  
+    <link rel="alternate" href="/atom.xml" title="厚实表皮" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png" type="image/x-icon">
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+    
+<link rel="stylesheet" href="/css/novel.css">
+
+  
+  
+  
+  
+  
+<meta name="generator" content="Hexo 7.3.0"></head>
+
+
+<body class="main-center page-layout-chapter no-sidebar" itemscope itemtype="http://schema.org/WebPage">
+  <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+  <div class="slimContent">
+    <div class="navbar-header">
+      
+      
+      <div class="profile-block text-center">
+        <a id="avatar" href="https://github.com/sukurucn" target="_blank">
+          <img class="img-circle img-rotate" src="/images/avatar.jpg" width="200" height="200">
+        </a>
+        <h2 id="name" class="hidden-xs hidden-sm">sukuru</h2>
+        <h3 id="title" class="hidden-xs hidden-sm hidden-md">上下文填充<br>模型调优<br>工作流搭建<br>安全合规机制</h3>
+        <small id="location" class="text-muted hidden-xs hidden-sm"><i class="icon icon-map-marker"></i> Hefei, China</small>
+      </div>
+      
+      <div class="search" id="search-form-wrap">
+
+    <form class="search-form sidebar-form">
+        <div class="input-group">
+            <input type="text" class="search-form-input form-control" placeholder="搜索" />
+            <span class="input-group-btn">
+                <button type="submit" class="search-form-submit btn btn-flat" onclick="return false;"><i class="icon icon-search"></i></button>
+            </span>
+        </div>
+    </form>
+    <div class="ins-search">
+  <div class="ins-search-mask"></div>
+  <div class="ins-search-container">
+    <div class="ins-input-wrapper">
+      <input type="text" class="ins-search-input" placeholder="想要查找什么..." x-webkit-speech />
+      <button type="button" class="close ins-close ins-selectable" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+    </div>
+    <div class="ins-section-wrapper">
+      <div class="ins-section-container"></div>
+    </div>
+  </div>
+</div>
+
+
+</div>
+      <button class="navbar-toggle collapsed" type="button" data-toggle="collapse" data-target="#main-navbar" aria-controls="main-navbar" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+    </div>
+    <nav id="main-navbar" class="collapse navbar-collapse" itemscope itemtype="http://schema.org/SiteNavigationElement" role="navigation">
+      <ul class="nav navbar-nav main-nav ">
+        
+        
+        <li class="menu-item menu-item-home">
+          <a href="/.">
+            
+            <i class="icon icon-home-fill"></i>
+            
+            <span class="menu-title">首页</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives">
+            
+            <i class="icon icon-archives-fill"></i>
+            
+            <span class="menu-title">归档</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories">
+            
+            <i class="icon icon-folder"></i>
+            
+            <span class="menu-title">分类</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-novel">
+          <a href="/novels">
+            
+            <i class="icon icon-book-fill"></i>
+            
+            <span class="menu-title">小说</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-repository">
+          <a target="_blank" rel="noopener" href="https://github.com/sukurucn?tab=repositories">
+            
+            <i class="icon icon-project"></i>
+            
+            <span class="menu-title">项目</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-books">
+          <a href="/books">
+            
+            <i class="icon icon-book-fill"></i>
+            
+            <span class="menu-title">书单</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-links">
+          <a href="/links">
+            
+            <i class="icon icon-friendship"></i>
+            
+            <span class="menu-title">友链</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about">
+            
+            <i class="icon icon-cup-fill"></i>
+            
+            <span class="menu-title">关于</span>
+          </a>
+        </li>
+        
+      </ul>
+      
+	
+    <ul class="social-links">
+    	
+        <li><a href="https://github.com/sukurucn" target="_blank" title="Github" data-toggle=tooltip data-placement=top><i class="icon icon-github"></i></a></li>
+        
+        <li><a href="/" target="_blank" title="Home" data-toggle=tooltip data-placement=top><i class="icon icon-home"></i></a></li>
+        
+        <li><a href="/images/qq-qrcode.jpg" target="_blank" title="Qq" data-toggle=tooltip data-placement=top><i class="icon icon-qq"></i></a></li>
+        
+        <li><a href="/atom.xml" target="_blank" title="Rss" data-toggle=tooltip data-placement=top><i class="icon icon-rss"></i></a></li>
+        
+    </ul>
+
+    </nav>
+  </div>
+</header>
+
+  
+  <div class="reading-progress" aria-hidden="true"><span id="reading-progress-bar"></span></div>
+<main class="main novel-reader-main" role="main">
+  <nav class="reader-toolbar" aria-label="阅读设置">
+    <a class="reader-back" href="/novels/pingfan-xiuxian/">← 平凡修仙</a>
+    <div class="reader-controls">
+      <button type="button" data-reader-size="-1" aria-label="减小字号">字−</button>
+      <button type="button" data-reader-size="1" aria-label="增大字号">字＋</button>
+      <button type="button" id="reader-theme-toggle" aria-label="切换阅读主题">夜间</button>
+    </div>
+  </nav>
+
+  <article class="novel-chapter" itemscope itemtype="https://schema.org/Chapter">
+    <header class="chapter-header">
+      <p class="novel-kicker">第三章 · 平凡修仙</p>
+      <h1 itemprop="headline">逐渐上手</h1>
+      <p class="chapter-lead">药山没有想象中那么大，讨厌一个人也不必先找齐证据。</p>
+    </header>
+    <div class="chapter-body" id="chapter-body" itemprop="text">
+      <p>刚到药园的第一个月，日子其实很轻松。</p>
+<p>轻松到我曾经短暂地觉得，这里和家里似乎没有什么不同。所谓离家五六日的深山，所谓我从没见过的药园，也不过是换了一处地方吃饭睡觉。甚至比在家时还要自在一些，至少没有先生检查功课，也没有母亲看见我在田埂上乱跑，叫我慢一点。</p>
+<p>我没有参与多少真正的劳作。</p>
+<p>管事把我们几个新来的人交给一位黄师兄，让我们先跟着他认药、认路，也认清药园里的规矩。黄师兄只比我大三岁，据说已经在这里做了四年。药园里并没有什么正式的师徒名分，先来的人一概被叫作师兄，叫得久了，仿佛他们真会传授什么道法。</p>
+<p>黄师兄传给我的第一样东西，是一根用来拨开叶子的细竹棍。</p>
+<p>“别用手乱摸，”他说，“有些叶子会让人起疹子。”</p>
+<p>我接过竹棍时很郑重，后来才知道那只是一截从竹篱上折下来的废竹片。</p>
+<p>虽然说是药山，其实大抵也就分成几个部分，并没有我最初想象的那么多药草。东边几块地种白芷和紫苏，地势高，日头也足。白芷出苗以后要间苗，挨得太近便都长不好；紫苏怕土里一直积水，雨后要先去看沟有没有堵。靠近山壁的地方阴湿，种的是黄精，太阳太烈时要及时盖防光布，土又不能板结。再往下还有两块甘草地，反而不必浇得太勤，水多了根容易坏。</p>
+<p>这些规矩听起来很多，实际来回也就是那几句：该晒的晒，该遮的遮；土干了浇水，水多了开沟；长得太挤便拔掉一些，叶子发黄便看看是虫还是根出了毛病。</p>
+<p>当然，真做起来没有这么随便。黄师兄若听见我这样概括，大概会拿竹棍敲我的腿。他总说同样是叶子发黄，缺水、积水和生虫全都不一样。我起初确实分不出来，只觉得黄就是黄。后来见得多了，才慢慢看出缺水的叶子从边缘发干，积水的叶子却软趴趴的，虫咬过的地方往往还留着细小的黑点。</p>
+<p>这大概就是所谓的经验。</p>
+<p>它并不像志怪小说里的传承，不会有人将手按在你的额头上，让你忽然多出几十年的见识。黄师兄只是每天带着我在几块田之间来回走，看见什么便说一句。我今天记住两句，明天忘掉一句，一个月以后，竟也记住了不少。</p>
+<p>那段时间，我几乎就是在药田附近闲逛。</p>
+<p>别人浇水时我站在旁边看，别人移苗时我蹲下去看，到了该吃饭的时候便跟着回去。有时黄师兄让我拔两棵草，我还要先举起来给他确认，免得把药苗拔了。他也不嫌烦，只是遇到我问过两次的问题，便会先看我一会儿，再回答。</p>
+<p>药园里的工人对我都很好。</p>
+<p>现在想来，这里的人大多也是从卖力气开始的，而且许多人年纪很小便来了，没有什么架子。大家做的活差不多，住的屋子也差不多，银子又是固定的三两。至于那些待得久的人是不是多拿一些，我并不知道。我那时很自然地认为所有人都和我一样，一年只值三两银子，后来才明白，人总喜欢先把自己不知道的部分想成公平。</p>
+<p>不过，药园里确实很少发生大的矛盾。</p>
+<p>谁也不能靠少浇一桶水多拿半两银子，也不能因为多拔了几棵草便升作管事。今天你替我抬一筐肥，明天我顺手帮你把防光布拉好，这些事情不值得专门记账。大家都累过，也都知道新人最初那点笨拙，所以很少有人故意为难我们。</p>
+<p>他们之中有几个人看起来已经很老了。</p>
+<p>按理说，我们并没有签什么卖身契。管事没有锁住山门，想走总是可以走的。我曾经因此不明白，他们为什么在一处偏远药园里待上十年，甚至二十年。</p>
+<p>后来我觉得，这个问题也许问得不对。</p>
+<p>能够离开是一回事，离开以后去哪里又是另一回事。有人在山下没有田，有人已经习惯这里的作息，也有人大概只是觉得重新找一份差事太麻烦。我没有认真问过他们，所以这些也只是我的猜测。每个人总归有自己的理由，只是理由未必值得讲给一个十二岁的孩子听。</p>
+<p>和我同一批来的，一共只有三个人。</p>
+<p>除了我，还有胡飞和林雨。</p>
+<p>林雨是个女孩，和我差不多年纪。她认字比我多一点，说话却不多。我难免对她有些好感。这里的好感也没有多么深，大概只是愿意在吃饭时坐得离她近一点，黄师兄提问时若我先想出答案，也希望她能够听见。</p>
+<p>相比之下，我很不喜欢胡飞。</p>
+<p>胡飞学东西慢。黄师兄刚讲过紫苏地不能积水，第二天他还是会问沟里的水要不要堵住；让他把白芷苗中长得太密的拔掉，他蹲了半天，一棵也不敢动。最后黄师兄只好握着他的手拔了一棵给他看。</p>
+<p>说实话，我痛恨蠢蛋。</p>
+<p>我自己当然算不上什么天赋聪颖的人，可这并不妨碍我痛恨比我更笨的人。这两件事在我看来并不冲突。我不够聪明是我的事情，胡飞很蠢是他的事情，我没有义务因为自己也算不上聪明，便对所有蠢人多出一份体谅。</p>
+<p>这种厌恶究竟从哪里来，我到现在也说不清，也不太想替它寻找来由。</p>
+<p>也许是因为他总要别人重复，也许是因为他说话时喜欢靠得太近，又或许什么原因都没有。讨厌一个人又不是判案，不必先找齐证据，再允许自己厌恶他。</p>
+<p>我渐渐不和胡飞一起走了。</p>
+<p>吃饭时我会先去找林雨，黄师兄让我们三个人自己练习认药，我也更愿意和她站在一边。胡飞过来问话，我仍然回答，却只回答他问的那一句。他若不来，我绝不会主动叫他。</p>
+<p>我没有煽动别人排挤他，也没有在背后说他坏话。我只是不愿意和他说话，不愿意同他一起玩，也不愿意在吃饭时坐到他旁边。</p>
+<p>这让我心安理得。</p>
+<p>不只是当时，直到现在我也不觉得讨厌一个人本身有什么错。人不能命令自己喜欢谁，更没有义务陪每一个人说话。胡飞可以不喜欢我，我自然也可以不喜欢他。</p>
+<p>我没有骂他，没有抢他的东西，也没有拦着别人同他来往。若只是因为我不愿意接近他，便说我做错了什么，那未免把喜欢与厌恶都看得太郑重。人与人原本就不一定合得来，我不欠他一份喜欢。</p>
+<p>胡飞也没有来问我为什么不理他。</p>
+<p>他有时独自跟在我们后面，有时又去找别的师兄。我不知道他是否察觉了我的厌恶。即便察觉了，我也不觉得自己需要为此道歉。被人讨厌当然不是什么愉快的事情，但这世上原本就没有谁能讨所有人喜欢。</p>
+<p>第一个月过后，我们开始真正做事。</p>
+<p>最先分给我的是一筐已经育好的白芷苗。我要把它们从小盆里取出来，移到刚松过土的田里。黄师兄先做了一棵：两指夹住苗茎，另一只手轻轻拍盆底，带着土一起托出来，再放进挖好的小坑里。根不能折，土也不能压得太实，种完以后浇一遍水。</p>
+<p>轮到我时，第一棵便种歪了。</p>
+<p>我趁黄师兄转身去看胡飞，赶紧把它拔出来重种。第二次还是有些歪，我便用旁边的土把一侧垫高，远远看去终于像是直的。</p>
+<p>那一天我们无非是移苗、浇水，把空盆摞到一起。之后又学着拌肥、除虫、除草，太阳太烈时去盖防光布，下雨以后沿着沟查看哪里堵住。没有一件事比家里的农活神秘，只是要求更细，也更不允许凭心情糊弄。</p>
+<p>我在家里虽然没有真正做过多少活，却看过父母怎样种田。许多动作并不需要重新学：锄头应该怎样落下，水浇到什么程度算是湿透，移苗时怎样托住根上的土。耳濡目染不能让我立刻成为熟手，却足够让我不至于处处露怯。</p>
+<p>来了一个月以后，我已经基本熟悉了这块药园。</p>
+<p>它不再像刚来时那么大。东边是什么，山壁下面种什么，从木屋走到甘草地要经过几道沟，我闭着眼当然还是会摔下去，但只要睁着眼，便不会再迷路。</p>
+<p>说实话，上手并不难。</p>
+<p>新人总要有一个月的熟悉期，不是因为这些事情真的高深，只是因为没有人知道你会不会把白芷当草拔掉，也没有人愿意拿一季药材来验证你究竟学得快不快。等看得多了，做过几次，原先那些规矩便会从需要背诵的话，变成手上自然的动作。</p>
+<p>我刚来时总害怕自己不能胜任，害怕别人看出我其实没有做过多少农活。可那种恐惧很快就没有了。</p>
+<p>并不是因为我忽然发现自己很有天赋。</p>
+<p>只是这世界上的大部分事情，可能都没有站在门外时想象得那么难。至少药园是这样。真正进去以后，人先认清路，再记住几条规矩，然后照着别人做过的样子，一天一天重复下去。</p>
+<p>等我不再担心别人看出我的马脚时，我也终于开始真正干活了。</p>
+
+    </div>
+  </article>
+
+  <nav class="chapter-navigation" aria-label="章节导航">
+    
+      <a class="chapter-nav-prev" href="/novels/pingfan-xiuxian/02-enter-mountain/"><span>上一篇</span><strong>第二章　进山</strong></a>
+    
+    
+      <a class="chapter-nav-next" href="/novels/pingfan-xiuxian/"><span>回到</span><strong>章节目录</strong></a>
+    
+  </nav>
+</main>
+
+  <footer class="footer" itemscope itemtype="http://schema.org/WPFooter">
+	
+	
+    <ul class="social-links">
+    	
+        <li><a href="https://github.com/sukurucn" target="_blank" title="Github" data-toggle=tooltip data-placement=top><i class="icon icon-github"></i></a></li>
+        
+        <li><a href="/" target="_blank" title="Home" data-toggle=tooltip data-placement=top><i class="icon icon-home"></i></a></li>
+        
+        <li><a href="/images/qq-qrcode.jpg" target="_blank" title="Qq" data-toggle=tooltip data-placement=top><i class="icon icon-qq"></i></a></li>
+        
+        <li><a href="/atom.xml" target="_blank" title="Rss" data-toggle=tooltip data-placement=top><i class="icon icon-rss"></i></a></li>
+        
+    </ul>
+
+    <div class="copyright">
+    	
+        <div class="publishby">
+        	Theme by <a href="https://github.com/cofess" target="_blank"> cofess </a>base on <a href="https://github.com/cofess/hexo-theme-pure" target="_blank">pure</a>.
+        </div>
+    </div>
+</footer>
+  <script src="//cdn.jsdelivr.net/npm/jquery@1.12.4/dist/jquery.min.js"></script>
+<script>
+window.jQuery || document.write('<script src="js/jquery.min.js"><\/script>')
+</script>
+
+<script src="/js/plugin.min.js"></script>
+
+
+<script src="/js/application.js"></script>
+
+
+   
+<script src="/js/novel.js"></script>
+
+
+
+    <script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: '文章',
+            PAGES: '页面',
+            CATEGORIES: '分类',
+            TAGS: '标签',
+            UNTITLED: '(未命名)',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+
+<script src="/js/insight.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+<script>
+  MathJax = {
+    tex: { inlineMath: [['$', '$'], ['\\(', '\\)']] },
+    svg: { fontCache: 'global' }
+  };
+</script>
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+</body>
+</html>
